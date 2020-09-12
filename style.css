@@ -78,6 +78,11 @@ nav{
 	z-index:99 !important;
 }
 
+#dropdown1.inactive ,
+#dropdown2.inactive {
+	display: none;
+}
+
 .biography{
 	font-family: 'Nanum Gothic', sans-serif;
 	text-align:center;
@@ -97,12 +102,12 @@ nav{
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 4 10px;
 }
 
 .column {
   flex: 50%;
-  padding: 0 4px;
+  padding: 4 10px;
 }
 
 .column img {
