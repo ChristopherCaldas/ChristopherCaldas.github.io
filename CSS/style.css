@@ -1,0 +1,111 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+
+	z-index:0;
+}
+
+
+.logo{
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 30px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+ul{
+	list-style:none;
+}
+
+nav{
+	background-color:black;
+	display:flex;
+	justify-content: space-between;
+	align-items: left;
+	padding: 10px 30px;
+	position: relative;
+	z-index:999;
+}  
+
+.menu-ctn > li {
+	display: inline-block;
+	color:black;
+	background-color: white;
+	font-family: 'Nanum Gothic', sans-serif;
+	padding: 10px 50px;
+	transition:all 0.5s ease;
+	position: relative;
+
+}
+
+.menu-ctn li:hover{
+	cursor:pointer;
+	background-color:lightpink;
+}
+
+#dropdown1,
+#dropdown2 {
+	display: none;
+	position: absolute;
+	width: 100%;
+	color:black;
+	background-color: grey;
+	border-color:black;
+	text-color:black;
+	text-align:center;
+	left:0;
+	top:100%;
+}
+
+
+#dropdown1 li,
+#dropdown2 li {
+	padding: 10px 15px
+}
+
+#dropdown1 li a,
+#dropdown2 li a,
+.menu-ctn a{
+	color:black;
+	text-decoration:none;
+}
+
+#dropdown1.active ,
+#dropdown2.active {
+	display: block;
+	z-index:99 !important;
+}
+
+.biography{
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+	color:white;
+	padding: 100px 20px;
+	font-size: 20px;
+}
+
+.mainQuote{
+	font-family: 'Cedarville Cursive', cursive;
+	text-align:center;
+	color:white;
+	padding: 100px 20px;
+	font-size: 30px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 4px;
+  vertical-align: middle;
+}
