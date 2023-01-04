@@ -13,9 +13,12 @@
         border-radius: 5px;
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        float: left;
+      }
+      .clear {
+        clear: both;
       }
       .column {
-        float: left;
         width: 50%;
       }
       .column h3 {
@@ -42,13 +45,10 @@
         font-size: 18px;
         border: none;
         border-radius: 5px;
- background-color: blue;
+        background-color: blue;
         color: white;
         cursor: pointer;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-      }
-      .clear {
-        clear: both;
       }
     </style>
   </head>
@@ -56,22 +56,46 @@
     <h1 style="text-align: center;">MMSA Snapshot Tool</h1>
     <form>
       <div class="column">
-        <h3>Variables 1</h3>
+        <h3>Delivered Cost</h3>
         <label for="num1">Number 1:</label>
-        <input type="text" id="num1"><br>
+        <input type="text" id="num1" value="1"><br>
         <label for="num2">Number 2:</label>
-        <input type="text" id="num2"><br>
+        <input type="text" id="num2" value="1"><br>
         <label for="num3">Number 3:</label>
-        <input type="text" id="num3"><br>
+        <input type="text" id="num3" value="1"><br>
       </div>
       <div class="column">
-        <h3>Variables 2</h3>
+        <h3>Delivered Cost</h3>
         <label for="num4">Number 4:</label>
-        <input type="text" id="num4"><br>
+        <input type="text" id="num4" value="1"><br>
         <label for="num5">Number 5:</label>
-        <input type="text" id="num5"><br>
+        <input type="text" id="num5" value="1"><br>
         <label for="num6">Number 6:</label>
-        <input type="text" id="num6"><br>
+        <input type="text" id="num6" value="1"><br>
+      </div>
+      <div class="clear"></div>
+      <button onclick="findSum()">Calculate sum</button><br>
+      <label for="sum">Sum:</label>
+      <input type="text" id="sum"><br>
+    </form>
+    <form>
+      <div class="column">
+        <h3>Delivered Cost</h3>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1" value="1"><br>
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2" value="1"><br>
+        <label for="num3">Number 3:</label>
+        <input type="text" id="num3" value="1"><br>
+      </div>
+      <div class="column">
+        <h3>Delivered Cost</h3>
+        <label for="num4">Number 4:</label>
+        <input type="text" id="num4" value="1"><br>
+        <label for="num5">Number 5:</label>
+        <input type="text" id="num5" value="1"><br>
+        <label for="num6">Number 6:</label>
+        <input type="text" id="num6" value="1"><br>
       </div>
       <div class="clear"></div>
       <button onclick="findSum()">Calculate sum</button><br>
