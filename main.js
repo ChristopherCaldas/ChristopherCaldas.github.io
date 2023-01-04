@@ -14,6 +14,7 @@ function findSum() {
   var num4 = document.getElementById("num4").value;
   var num5 = document.getElementById("num5").value;
   var num6 = document.getElementById("num6").value;
-  var sum = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
-  document.getElementById("sum").value = sum;
+  
+  var naturalGasFeed = 32.6 * num1 * 1.1 / 1.055;
+  document.getElementById("num7").value = naturalGasFeed;
   
