@@ -15,5 +15,10 @@ function findSum() {
   var num5 = document.getElementById("num5").value;
   var num6 = document.getElementById("num6").value;
   var naturalGasFeed = 32.6 * num1 * 1.1 / 1.055;
+  var electricty = 38.6 * num2 
+  var water = 8 * num3
+  var plantfixedcosts= num4 * num5 / 100 / (900/1000)
+  var transport = num6
+  
   document.getElementById("num7").value = naturalGasFeed;
 }
