@@ -6,7 +6,7 @@
         font-family: Arial, sans-serif;
       }
       form {
-        width: 400px;
+        width: 700px;
         margin: 0 auto;
         text-align: center;
         border: 2px solid black;
@@ -57,33 +57,33 @@
     <form>
       <div class="column">
         <h3>Economic Assumptions</h3>
-        <label for="num1">Number 1:</label>
+        <label for="num1">Natural Gas Saudi Arabia:</label>
         <input type="text" id="num1" value="1"><br>
-        <label for="num2">Number 2:</label>
+        <label for="num2">Electricity Cost - ME:</label>
         <input type="text" id="num2" value="1"><br>
-        <label for="num3">Number 3:</label>
+        <label for="num3">Water Makeup:</label>
         <input type="text" id="num3" value="1"><br>
       </div>
       <div class="column">
         <h3>Variable Cost</h3>
         <label for="num4">Natural Gas Feed:</label>
-        <input type="text" id="num4" value="1"><br>
+        <input type="text" id="num4" value="42.5"><br>
         <label for="num5">Electricity:</label>
-        <input type="text" id="num5" value="1"><br>
+        <input type="text" id="num5" value="2.6"><br>
         <label for="num6">Water:</label>
-        <input type="text" id="num6" value="1"><br>
+        <input type="text" id="num6" value="0.5"><br>
         <label for="num7">Catalyst:</label>
-        <input type="text" id="num7" value="1"><br>
+        <input type="text" id="num7" value="1.8"><br>
       </div>
       <div class="column">
         <h3>Fixed Cost</h3>
         <label for="num8">Plant Fixed Costs:</label>
-        <input type="text" id="num8" value="1"><br>
+        <input type="text" id="num8" value="22.8"><br>
         <label for="num9">Transport:</label>
-        <input type="text" id="num9" value="1"><br>
+        <input type="text" id="num9" value="45.0"><br>
       </div>
       <div class="clear"></div>
-      <button onclick="findSum()">Calculate sum</button><br>
+      <button onclick="findSum()">Update</button><br>
       <label for="sum">Sum:</label>
       <input type="text" id="sum"><br>
     </form>
