@@ -14,7 +14,7 @@ function findSum() {
   var num4 = document.getElementById("num4").value;
   var num5 = document.getElementById("num5").value;
   var num6 = document.getElementById("num6").value;
-  var naturalGasFeed = 32.6 * num1 * 1.1 / 1.055;N
+  var naturalGasFeed = 32.6 * num1 * 1.1 / 1.055;
   var electricty = 38.6 * num2 
   var water = 8 * num3
   var catalyst = document.getElementById("num10").value;
