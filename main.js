@@ -20,11 +20,21 @@ function findSum() {
   var catalyst = document.getElementById("num10").value;
   var plantfixedcosts= (num4 * num5)/100/(.9)
   var transport = num6
+  var totSum = naturalGasFeed + electricty + water + catalyst + plantfixedcosts + transport
   
   document.getElementById("num7").value = Math.round(naturalGasFeed*10)/10;
   document.getElementById("num8").value = Math.round(electricty*10)/10;
   document.getElementById("num9").value = Math.round(water*10)/10;
   document.getElementById("num11").value = Math.round(plantfixedcosts*10)/10;
   document.getElementById("num12").value = transport;
-  document.getElementById("sum").value = Math.round((naturalGasFeed + electricty + water + catalyst + plantfixedcosts + transport)*10)/10;
+  document.getElementById("sum").value = Math.round(totSum*10)/10;
+  console.log(naturalGasFeed);
+  console.log(electricty);
+  console.log(water);
+  console.log(catalyst);
+  console.log(plantfixedcosts);
+  console.log(transport);
+  console.log(num4 * num5);
+  console.log((num4*num5)/100);
+  console.log((num4*num5)/100/(.9));
 }
