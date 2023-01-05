@@ -27,7 +27,7 @@ function findSum() {
   document.getElementById("num9").value = Math.round(water*10)/10;
   document.getElementById("num11").value = Math.round(plantfixedcosts*10)/10;
   document.getElementById("num12").value = transport;
-  document.getElementById("sum").value = Math.round(totSum*10)/10;
+  document.getElementById("sum").value = totSum;
   console.log(naturalGasFeed);
   console.log(electricty);
   console.log(water);
@@ -36,5 +36,6 @@ function findSum() {
   console.log(transport);
   console.log(num4 * num5);
   console.log((num4*num5)/100);
-  console.log((num4*num5)/100/(.9));
+  console.log((num4*num5)/100/(.9))
+  console.log(totSum);
 }
