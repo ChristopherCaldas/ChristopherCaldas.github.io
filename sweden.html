@@ -1,67 +1,152 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-with, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Mercedes Dianne Broad</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<script>
+		L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+	</script>
+
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<style>
+		#map {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js">
+	</script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
+
+	<meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		#map_cd7532633207cff9b8fd924011faa4b0 {
+			position: relative;
+			width: 1000.0px;
+			height: 500.0px;
+			left: 0.0%;
+			top: 0.0%;
+		}
+
+		.leaflet-container {
+			font-size: 1rem;
+		}
+	</style>
+
 </head>
-<body style="background-color:black;">
-	<nav>
-		<div class="logo">
-			<h4>Mercedes Dianne Broad  :  Sweden</h4>
-		</div>	
-		<ul class="menu-ctn">
-					<li><a href="index.html#">Main</a></li>
-					<li id="menu1">
-						About
-						<ul id="dropdown1">
-							<li><a href="bio.html#">Bio</a></li>		
-							<li><a href="https://www.facebook.com/mercedes.d.broad/">Facebook</a></li>
-							<li><a href="https://www.instagram.com/missydianne/">Insta</a></li>
-							<li><a href="https://www.tiktok.com/@missydianne98?lang=en">TikTok</a></li>
-							<li><a href="https://www.youtube.com/channel/UCPxCl50GZ3o8JbcnvBjNn0g">YouTube</a></li>							
-							<li><a href="https://www.rationchallenge.org.uk/mercedes-broad?fbclid=IwAR1hvIZaZHkaPO6deniS7EsvmiI6G3iXkx8OqWRHJwiVSmGCjTWUD-5DY8Y">Ration Challenge</a></li>
-						</ul>
-					</li>
-					<li id="menu2">
-						Photos
-						<ul id="dropdown2">
-							<li><a href="sweden.html#">Sweden</a></li>		
-							<li><a href="berlin.html#">Berlin</a></li>
-							<li><a href="missbritishisles.html#">Miss British Isles</a></li>
-							<li><a href="photoshoot.html#">2020 Photo Shoot</a></li>
-							<li><a href="rifle.html#">Rifle</a></li>
-							<li><a href="lancashire.html#">Lancashire</a></li>							
-						</ul>
-					</li>
-		</ul>
-	</nav>
-	<div class="row">
-		<div class="column">
-			<img src="photos/sweden/sweden1.jpg" width="400">
-			<img src="photos/sweden/sweden2.jpg" width="400">
-			<img src="photos/sweden/sweden3.jpg" width="400">
-			<img src="photos/sweden/sweden4.jpg" width="400">
-			<img src="photos/sweden/sweden5.jpg" width="400">
-			<img src="photos/sweden/sweden6.jpg" width="400">
-			<img src="photos/sweden/sweden7.jpg" width="400">
-			<img src="photos/sweden/sweden8.jpg" width="400">
-		</div>
-		<div class="column">
-			<img src="photos/sweden/sweden9.jpg" width="400">
-			<img src="photos/sweden/sweden10.jpg" width="400">
-			<img src="photos/sweden/sweden11.jpg" width="400">
-			<img src="photos/sweden/sweden12.jpg" width="400">
-			<img src="photos/sweden/sweden13.jpg" width="400">
-			<img src="photos/sweden/sweden14jpg" width="400">
-			<img src="photos/sweden/sweden15.jpg" width="400">
-			<img src="photos/sweden/sweden16.jpg" width="400">
-			<img src="photos/sweden/sweden17.jpg" width="400">
-		</div>
-	</div>
-	<script src="main.js"></script>
+
+<body>
+
+
+	<div class="folium-map" id="map_cd7532633207cff9b8fd924011faa4b0"></div>
+
 </body>
+<script>
+	var map_cd7532633207cff9b8fd924011faa4b0 = L.map(
+                "map_cd7532633207cff9b8fd924011faa4b0",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_25e9ea7248c7dd50a320884eb8619eb4 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_7de5607c6bcec91a9c1d17ecea28a028 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_cbf47f1e4588e384c793891d15e08196 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_ace82574b1a19801a4148c7c97b19d15 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_d6ca71563843ffeb30f32cdcac345152 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_2338dec4cbce25c1a5b85dbc749ed7ef = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_916e67ad3e482652e4832c868bf86b61 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_bfa291352b9a0b2e2bbbc46fb5d5465d = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_9c588d1d7f8399c351c5b1163621e147 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_ed486bb1be869aee7621f7b441dd679a = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+    
+            var poly_line_e4ba4794fbc349475aacb545a462fd35 = L.polyline(
+                [[40.7128, 74.006], [40.7128, 74.006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_cd7532633207cff9b8fd924011faa4b0);
+        
+</script>
+
 </html>
