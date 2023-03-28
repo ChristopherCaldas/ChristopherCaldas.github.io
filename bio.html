@@ -70,32 +70,33 @@
   <div id="output"></div>
 
   <script>
-    $(document).ready(function() {
-      $("#map-form").on("submit", function(event) {
-        event.preventDefault();
+	$(document).ready(function() {
+	  $("#map-form").on("submit", function(event) {
+		event.preventDefault();
 
-        const country = $("#country").val();
-        const before_date = $("#before_date").val();
-        const after_date = $("#after_date").val();
+		const country = $("#country").val();
+		const before_date = $("#before_date").val();
+		const after_date = $("#after_date").val();
 
-        $.ajax({
-          url: "http://127.0.0.1:5000/route_map_port",
-          method: "POST",
-          contentType: "application/json",
-          data: JSON.stringify({
-            country: country,
-            before_date: before_date,
-            after_date: after_date
-          }),
-          success: function(response) {
-            $("#output").html(response);
-          },
-          error: function(response) {
-            console.error("An error occurred:", response);
-          }
-        });
-      });
-    });
+		$.ajax({
+		  url: "http://127.0.0.1:5000/route_map_port",
+		  method: "POST",
+		  contentType: "application/json",
+		  data: JSON.stringify({
+			country: country,
+			before_date: before_date,
+			after_date: after_date
+		  }),
+		  success: function(response) {
+			const newWindow = window.open("", "_blank");
+			newWindow.document.write(response);
+		  },
+		  error: function(response) {
+			console.error("An error occurred:", response);
+		  }
+		});
+	  });
+	});
   </script>
 
 </body>
