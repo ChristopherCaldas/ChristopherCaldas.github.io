@@ -68,33 +68,42 @@
   </form>
 
   <div id="output"></div>
+  <div id="loading-message" style="display: none;">Loading, please wait...</div>
 
   <script>
-	$(document).ready(function() {
-	  $("#map-form").on("submit", function(event) {
-		event.preventDefault();
 
-		const country = $("#country").val();
-		const before_date = $("#before_date").val();
-		const after_date = $("#after_date").val();
+	$("#map-form").on("submit", function(event) {
+	  event.preventDefault();
 
-		$.ajax({
-		  url: "https://operations-data-api.ue.r.appspot.com/route_map_port",
-		  method: "POST",
-		  contentType: "application/json",
-		  data: JSON.stringify({
-			country: country,
-			before_date: before_date,
-			after_date: after_date
-		  }),
-		  success: function(response) {
-			const newWindow = window.open("", "_blank");
-			newWindow.document.write(response);
-		  },
-		  error: function(response) {
-			console.error("An error occurred:", response);
-		  }
-		});
+	  const country = $("#country").val();
+	  const before_date = $("#before_date").val();
+	  const after_date = $("#after_date").val();
+
+	  // Show the loading message
+	  $("#loading-message").show();
+
+	  $.ajax({
+		url: "https://operations-data-api.ue.r.appspot.com/route_map_port",
+		method: "POST",
+		contentType: "application/json",
+		data: JSON.stringify({
+		  country: country,
+		  before_date: before_date,
+		  after_date: after_date
+		}),
+		success: function(response) {
+		  // Hide the loading message
+		  $("#loading-message").hide();
+
+		  const newWindow = window.open("", "_blank");
+		  newWindow.document.write(response);
+		},
+		error: function(response) {
+		  // Hide the loading message
+		  $("#loading-message").hide();
+
+		  console.error("An error occurred:", response);
+		}
 	  });
 	});
   </script>
