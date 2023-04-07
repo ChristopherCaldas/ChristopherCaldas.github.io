@@ -87,7 +87,7 @@
       $("#loading-message").removeClass("d-none");
 
       $.ajax({
-        url: "https://operations-data-api.ue.r.appspot.com/route_map_port",
+        url: "http://127.0.0.1:5000/route_map_port",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({
