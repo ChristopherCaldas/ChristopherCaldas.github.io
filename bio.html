@@ -86,15 +86,25 @@
       // Show the loading message
       $("#loading-message").removeClass("d-none");
 
+
+      // Create the data object with the country
+      const requestData = {
+        country: country,
+      };
+
+      // Add before_date and after_date to requestData only if they are not empty
+      if (before_date) {
+        requestData.before_date = before_date;
+      }
+      if (after_date) {
+        requestData.after_date = after_date;
+      }
+
       $.ajax({
-        url: "http://127.0.0.1:5000/route_map_port",
+        url: "https://operations-data-api.ue.r.appspot.com/route_map_port",
         method: "POST",
         contentType: "application/json",
-        data: JSON.stringify({
-          country: country,
-          before_date: before_date,
-          after_date: after_date
-        }),
+        data: JSON.stringify(requestData),
         success: function(response) {
           // Hide the loading message
           $("#loading-message").addClass("d-none");
