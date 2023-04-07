@@ -71,10 +71,10 @@
       <div class="col-md-12">
         <div id="output" class="mt-4"></div>
         <div id="loading-message" class="d-none">Loading, please wait...</div>
+        <div id="error-message" class="d-none alert alert-danger mt-4" role="alert"></div>
       </div>
     </div>
   </div>
-
   <script>
     $("#map-form").on("submit", function(event) {
       event.preventDefault();
@@ -85,7 +85,6 @@
 
       // Show the loading message
       $("#loading-message").removeClass("d-none");
-
 
       // Create the data object with the country
       const requestData = {
@@ -106,8 +105,9 @@
         contentType: "application/json",
         data: JSON.stringify(requestData),
         success: function(response) {
-          // Hide the loading message
+          // Hide the loading message and error message
           $("#loading-message").addClass("d-none");
+          $("#error-message").addClass("d-none");
 
           const newWindow = window.open("", "_blank");
           newWindow.document.write(response);
@@ -115,6 +115,10 @@
         error: function(response) {
           // Hide the loading message
           $("#loading-message").addClass("d-none");
+
+          // Show the error message
+          $("#error-message").removeClass("d-none");
+          $("#error-message").html("An error occurred: " + response.responseText);
 
           console.error("An error occurred:", response);
         }
