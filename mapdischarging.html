@@ -41,12 +41,20 @@
             <label for="country" class="form-label">Loading Country:</label>
             <select id="country" name="country" class="form-select">
               <option value="" disabled selected>Select a country</option>
-              <option value="USA">USA</option>
-			  <option value="Iran">Iran</option>
 			  <option value="China">China</option>
+			  <option value="S Korea">S Korea</option>
+			  <option value="Netherlands">Netherlands</option>
+              <option value="USA">USA</option>
+			  <option value="Japan">Japan</option>
+			  <option value="India">India</option>
+			  <option value="Taiwan">Taiwan</option>
+			  <option value="Brazil">Brazil</option>
+			  <option value="Spain">Spain</option>
+			  <option value="Mexico">Mexico</option>
+			  <option value="Iran">Iran</option>			  
 			  <option value="Trinidad Tobago">Trinidad Tobago</option>
 			  <option value="S Arabia">S Arabia</option>
-			  <option value="S Korea">S Korea</option>
+			  
 
 
             </select>
@@ -100,7 +108,7 @@
       }
 
       $.ajax({
-        url: "https://operations-data-api.ue.r.appspot.com/route_map_discharging",
+        url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(requestData),
