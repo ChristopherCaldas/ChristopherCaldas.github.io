@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route Map</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- DataTables JavaScript -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <style>
+    .logo {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="mt-4">Top Route Maps by Loading Country</h1>
+      </div>
+      <div class="col-md-4 text-end">
+        <img src="photos/MMSA/logo.png" alt="Your Logo" class="logo">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form id="map-form">
+          <div class="mb-3">
+            <label for="country" class="form-label">Loading Country:</label>
+            <select id="country" name="country" class="form-select">
+              <option value="" disabled selected>Select a country</option>
+              <option value="USA">USA</option>
+			  <option value="Iran">Iran</option>
+			  <option value="China">China</option>
+			  <option value="Trinidad Tobago">Trinidad Tobago</option>
+			  <option value="S Arabia">S Arabia</option>
+			  <option value="S Korea">S Korea</option>
+
+
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="after_date" class="form-label">After Date:</label>
+            <input type="date" id="after_date" name="after_date" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="before_date" class="form-label">Before Date:</label>
+            <input type="date" id="before_date" name="before_date" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Generate Map</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="output" class="mt-4"></div>
+        <div id="loading-message" class="d-none">Loading, please wait...</div>
+        <div id="error-message" class="d-none alert alert-danger mt-4" role="alert"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $("#map-form").on("submit", function(event) {
+      event.preventDefault();
+
+      const country = $("#country").val();
+      const before_date = $("#before_date").val();
+      const after_date = $("#after_date").val();
+
+      // Show the loading message
+      $("#loading-message").removeClass("d-none");
+
+      // Create the data object with the country
+      const requestData = {
+        country: country,
+      };
+
+      // Add before_date and after_date to requestData only if they are not empty
+      if (before_date) {
+        requestData.before_date = before_date;
+      }
+      if (after_date) {
+        requestData.after_date = after_date;
+      }
+
+      $.ajax({
+        url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(requestData),
+        success: function(response) {
+          // Hide the loading message and error message
+          $("#loading-message").addClass("d-none");
+          $("#error-message").addClass("d-none");
+
+          const newWindow = window.open("", "_blank");
+          newWindow.document.write(response);
+        },
+        error: function(response) {
+          // Hide the loading message
+          $("#loading-message").addClass("d-none");
+
+          // Show the error message
+          $("#error-message").removeClass("d-none");
+          $("#error-message").html("An error occurred: " + response.responseText);
+
+          console.error("An error occurred:", response);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
