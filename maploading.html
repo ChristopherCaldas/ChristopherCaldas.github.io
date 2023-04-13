@@ -67,7 +67,7 @@
 
           <button type="submit" class="btn btn-primary">Generate Map</button>
 		  
-		  <button type="submit" class="btn btn-primary"form="map-form">Download Data</button>
+		  <button type="download-btn" class="btn btn-primary"form="map-form">Download Data</button>
         </form>
       </div>
     </div>
@@ -80,56 +80,72 @@
       </div>
     </div>
   </div>
-  <script>
-    $("#map-form").on("submit", function(event) {
-      event.preventDefault();
+    <script>
+        $("#map-form").on("submit", function(event) {
+            event.preventDefault();
+            handleFormSubmit(false);
+        });
 
-      const country = $("#country").val();
-      const before_date = $("#before_date").val();
-      const after_date = $("#after_date").val();
+        $("#download-btn").on("click", function(event) {
+            event.preventDefault();
+            handleFormSubmit(true);
+        });
 
-      // Show the loading message
-      $("#loading-message").removeClass("d-none");
+        function handleFormSubmit(isDownload) {
+            const country = $("#country").val();
+            const before_date = $("#before_date").val();
+            const after_date = $("#after_date").val();
 
-      // Create the data object with the country
-      const requestData = {
-        country: country,
-      };
+            // Show the loading message
+            $("#loading-message").removeClass("d-none");
 
-      // Add before_date and after_date to requestData only if they are not empty
-      if (before_date) {
-        requestData.before_date = before_date;
-      }
-      if (after_date) {
-        requestData.after_date = after_date;
-      }
+            // Create the data object with the country
+            const requestData = {
+                country: country,
+            };
 
-      $.ajax({
-        ///url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
-		url: "http://127.0.0.1:5000/route_map_loading",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(requestData),
-        success: function(response) {
-          // Hide the loading message and error message
-          $("#loading-message").addClass("d-none");
-          $("#error-message").addClass("d-none");
+            // Add before_date and after_date to requestData only if they are not empty
+            if (before_date) {
+                requestData.before_date = before_date;
+            }
+            if (after_date) {
+                requestData.after_date = after_date;
+            }
 
-          const newWindow = window.open("", "_blank");
-          newWindow.document.write(response);
-        },
-        error: function(response) {
-          // Hide the loading message
-          $("#loading-message").addClass("d-none");
+            // Add download key to requestData if isDownload is true
+            if (isDownload) {
+                requestData.download = "yes";
+            }
 
-          // Show the error message
-          $("#error-message").removeClass("d-none");
-          $("#error-message").html("An error occurred: " + response.responseText);
+            $.ajax({
+                //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
+                url: "http://127.0.0.1:5000/route_map_loading",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(requestData),
+                success: function(response) {
+                    if (isDownload) {
+                        // Handle download success case
+                    } else {
+                        // Hide the loading message and error message
+                        $("#loading-message").addClass("d-none");
+                        $("#error-message").addClass("d-none");
 
-          console.error("An error occurred:", response);
+                        const newWindow = window.open("", "_blank");
+                        newWindow.document.write(response);
+                    }
+                },
+                error: function(response) {
+                    // Hide the loading message
+
+                    // Show the error message
+                    $("#error-message").removeClass("d-none");
+                    $("#error-message").html("An error occurred: " + response.responseText);
+
+                    console.error("An error occurred:", response);
+                }
+            });
         }
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
