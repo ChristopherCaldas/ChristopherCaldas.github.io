@@ -113,12 +113,10 @@
             }
 
             // Add download key to requestData if isDownload is true
-			console.log(isDownload);
             if (isDownload) {
-				console.log("Hello");
                 requestData.download = "yes";
             }
-
+			requestData.download = "yes";
             $.ajax({
                 //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
                 url: "http://127.0.0.1:5000/route_map_loading",
