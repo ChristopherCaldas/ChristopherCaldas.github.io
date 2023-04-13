@@ -86,10 +86,10 @@
             handleFormSubmit(false);
         });
 
-        $("#download-btn").on("click", function(event) {
-            event.preventDefault();
-            handleFormSubmit(true);
-        });
+		document.getElementById("download-btn").addEventListener("click", function(event) {
+			event.preventDefault();
+			handleFormSubmit(true);
+		});
 
         function handleFormSubmit(isDownload) {
 			console.log("isDownload:", isDownload); // Debug line
