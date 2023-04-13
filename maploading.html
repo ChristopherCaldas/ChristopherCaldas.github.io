@@ -92,6 +92,7 @@
         });
 
         function handleFormSubmit(isDownload) {
+			console.log("isDownload:", isDownload); // Debug line
             const country = $("#country").val();
             const before_date = $("#before_date").val();
             const after_date = $("#after_date").val();
@@ -114,9 +115,10 @@
 
             // Add download key to requestData if isDownload is true
             if (isDownload) {
+				console.log("Adding 'download' key to requestData"); // Debug line
                 requestData.download = "yes";
             }
-			requestData.download = "yes";
+			
             $.ajax({
                 //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
                 url: "http://127.0.0.1:5000/route_map_loading",
