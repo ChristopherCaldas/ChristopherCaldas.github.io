@@ -146,6 +146,7 @@
 						a.download = 'data.csv';
 						a.click();
 						URL.revokeObjectURL(url);
+						$("#loading-message").addClass("d-none");
                     } else {
                         // Hide the loading message and error message
                         $("#loading-message").addClass("d-none");
