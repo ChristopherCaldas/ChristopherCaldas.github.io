@@ -80,17 +80,13 @@
       const country = $("#country").val();
       const month = $("#month").val();
 
-      if (!country || !month) {
-        alert("Please select a country and month.");
-        return;
-      }
-
+      // Show the loading message
       $("#loading-message").removeClass("d-none");
 
       $.ajax({
-        url: "http://127.0.0.1:5000/route_map_loading_monthly",
-        method: "POST"
-		contentType: "application/json",
+        url: "http://127.0.0.1:5000/route_map_monthly",
+        method: "POST",
+        contentType: "application/json",
         data: JSON.stringify({
           country: country,
           month: month
@@ -114,3 +110,9 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
