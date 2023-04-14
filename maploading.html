@@ -138,9 +138,7 @@
                 data: JSON.stringify(requestData),
                 success: function(response) {
                     if (isDownload) {
-						// Handle download success case
-						const jsonData = JSON.parse(response);
-						const csvData = jsonToCSV(jsonData);
+						const csvData = response;
 						const blob = new Blob([csvData], {type: 'text/csv'});
 						const url = URL.createObjectURL(blob);
 						const a = document.createElement('a');
