@@ -127,7 +127,14 @@
                 data: JSON.stringify(requestData),
                 success: function(response) {
                     if (isDownload) {
-                        // Handle download success case
+						// Handle download success case
+						const blob = new Blob([response], {type: 'application/json'});
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = 'data.json';
+						a.click();
+						URL.revokeObjectURL(url);
                     } else {
                         // Hide the loading message and error message
                         $("#loading-message").addClass("d-none");
