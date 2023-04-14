@@ -90,7 +90,18 @@
 			event.preventDefault();
 			handleFormSubmit(true);
 		});
+		function jsonToCSV(jsonData) {
+			const items = jsonData; // Assuming jsonData is an array of objects
+			const replacer = (key, value) => value === null ? '' : value;
+			const header = Object.keys(items[0]);
+			const csv = [
+				header.join(','), // Add the header
+				...items.map(item => header.map(fieldName => JSON.stringify(item[fieldName], replacer)).join(','))
+			].join('\r\n');
 
+			return csv;
+		}
+		
         function handleFormSubmit(isDownload) {
 			console.log("isDownload:", isDownload); // Debug line
             const country = $("#country").val();
@@ -128,11 +139,13 @@
                 success: function(response) {
                     if (isDownload) {
 						// Handle download success case
-						const blob = new Blob([response], {type: 'application/json'});
+						const jsonData = JSON.parse(response);
+						const csvData = jsonToCSV(jsonData);
+						const blob = new Blob([csvData], {type: 'text/csv'});
 						const url = URL.createObjectURL(blob);
 						const a = document.createElement('a');
 						a.href = url;
-						a.download = 'data.json';
+						a.download = 'data.csv';
 						a.click();
 						URL.revokeObjectURL(url);
                     } else {
