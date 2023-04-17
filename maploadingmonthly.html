@@ -41,26 +41,18 @@
             <label for="country" class="form-label">Loading Country:</label>
             <select id="country" name="country" class="form-select">
               <option value="" disabled selected>Select a country</option>
-			  <option value="Trinidad Tobago">Trinidad Tobago</option>
-			  <option value="Iran">Iran</option>
-              <option value="S Arabia">S Arabia</option>
-			  <option value="USA">USA</option>
-			  <option value="Egypt">Egypt</option>
-			  <option value="New Zealand">New Zealand</option>
-			  <option value="Oman">Oman</option>
-			  <option value="S Korea">S Korea</option>
-			  <option value="Equatorial Guinea">Equatorial Guinea</option>
-			  <option value="Venezuela">Venezuela</option>
-			  <option value="China">China</option>
+              <!-- Add the country options here -->
             </select>
           </div>
-          
+
           <div class="mb-3">
             <label for="month" class="form-label">Month:</label>
             <input type="month" id="month" name="month" class="form-control">
           </div>
 
           <button type="submit" class="btn btn-primary">Generate Map</button>
+          
+          <button id="download-btn" class="btn btn-primary">Download Data</button>
         </form>
       </div>
     </div>
@@ -73,46 +65,71 @@
       </div>
     </div>
   </div>
-  <script>
-    $("#map-form").on("submit", function(event) {
-      event.preventDefault();
+    <script>
+        $("#map-form").on("submit", function(event) {
+            event.preventDefault();
+            handleFormSubmit(false);
+        });
 
-      const country = $("#country").val();
-      const month = $("#month").val();
+        document.getElementById("download-btn").addEventListener("click", function(event) {
+            event.preventDefault();
+            handleFormSubmit(true);
+        });
 
-      // Show the loading message
-      $("#loading-message").removeClass("d-none");
+        function handleFormSubmit(isDownload) {
+            const country = $("#country").val();
+            const month = $("#month").val();
 
-      $.ajax({
-        url: "http://127.0.0.1:5000/route_map_loading_monthly",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-          country: country,
-          month: month
-        }),
-        success: function(response) {
-          $("#loading-message").addClass("d-none");
-          $("#error-message").addClass("d-none");
+            // Show the loading message
+            $("#loading-message").removeClass("d-none");
+ // Create the data object with the country and month
+        const requestData = {
+            country: country,
+            month: month,
+        };
 
-          const newWindow = window.open("", "_blank");
-          newWindow.document.write(response);
-        },
-        error: function(response) {
-          $("#loading-message").addClass("d-none");
-          $("#error-message").removeClass("d-none");
-          $("#error-message").html("An error occurred: " + response.responseText);
-
-          console.error("An error occurred:", response);
+        // Add download key to requestData if isDownload is true
+        if (isDownload) {
+            requestData.download = "yes";
         }
-      });
-    });
-  </script>
+
+        $.ajax({
+            //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading_monthly",
+            url: "http://127.0.0.1:5000/route_map_loading_monthly",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(requestData),
+            success: function(response) {
+                if (isDownload) {
+                    const csvData = response;
+                    const blob = new Blob([csvData], {type: 'text/csv'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'data.csv';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    $("#loading-message").addClass("d-none");
+                } else {
+                    // Hide the loading message and error message
+                    $("#loading-message").addClass("d-none");
+                    $("#error-message").addClass("d-none");
+
+                    const newWindow = window.open("", "_blank");
+                    newWindow.document.write(response);
+                }
+            },
+            error: function(response) {
+                // Hide the loading message
+
+                // Show the error message
+                $("#error-message").removeClass("d-none");
+                $("#error-message").html("An error occurred: " + response.responseText);
+
+                console.error("An error occurred:", response);
+            }
+        });
+    }
+</script>
 </body>
 </html>
-
-
-
-
-
-
