@@ -54,17 +54,23 @@
 			  <option value="China">China</option>
 			  <option value="New Zealand">New Zealand</option>
 			  <option value="Malaysia">Malaysia</option>
+			  
             </select>
           </div>
 
           <div class="mb-3">
-            <label for="month" class="form-label">Month:</label>
-            <input type="month" id="month" name="month" class="form-control">
+            <label for="after_date" class="form-label">After Date:</label>
+            <input type="date" id="after_date" name="after_date" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="before_date" class="form-label">Before Date:</label>
+            <input type="date" id="before_date" name="before_date" class="form-control">
           </div>
 
           <button type="submit" class="btn btn-primary">Generate Map</button>
-          
-          <button id="download-btn" class="btn btn-primary">Download Data</button>
+		  
+		  <button id="download-btn" class="btn btn-primary">Download Data</button>
         </form>
       </div>
     </div>
@@ -83,65 +89,87 @@
             handleFormSubmit(false);
         });
 
-        document.getElementById("download-btn").addEventListener("click", function(event) {
-            event.preventDefault();
-            handleFormSubmit(true);
-        });
+		document.getElementById("download-btn").addEventListener("click", function(event) {
+			event.preventDefault();
+			handleFormSubmit(true);
+		});
+		function jsonToCSV(jsonData) {
+			const items = jsonData; // Assuming jsonData is an array of objects
+			const replacer = (key, value) => value === null ? '' : value;
+			const header = Object.keys(items[0]);
+			const csv = [
+				header.join(','), // Add the header
+				...items.map(item => header.map(fieldName => JSON.stringify(item[fieldName], replacer)).join(','))
+			].join('\r\n');
 
+			return csv;
+		}
+		
         function handleFormSubmit(isDownload) {
+			console.log("isDownload:", isDownload); // Debug line
             const country = $("#country").val();
-            const month = $("#month").val();
+            const before_date = $("#before_date").val();
+            const after_date = $("#after_date").val();
 
             // Show the loading message
             $("#loading-message").removeClass("d-none");
-		// Create the data object with the country and month
-        const requestData = {
-            country: country,
-            month: month,
-        };
 
-        // Add download key to requestData if isDownload is true
-        if (isDownload) {
-            requestData.download = "yes";
-        }
+            // Create the data object with the country
+            const requestData = {
+                country: country,
+            };
 
-        $.ajax({
-            //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading_monthly",
-            url: "http://127.0.0.1:5000/route_map_loading_monthly",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(requestData),
-            success: function(response) {
-                if (isDownload) {
-                    const csvData = response;
-                    const blob = new Blob([csvData], {type: 'text/csv'});
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'data.csv';
-                    a.click();
-                    URL.revokeObjectURL(url);
-                    $("#loading-message").addClass("d-none");
-                } else {
-                    // Hide the loading message and error message
-                    $("#loading-message").addClass("d-none");
-                    $("#error-message").addClass("d-none");
-
-                    const newWindow = window.open("", "_blank");
-                    newWindow.document.write(response);
-                }
-            },
-            error: function(response) {
-                // Hide the loading message
-
-                // Show the error message
-                $("#error-message").removeClass("d-none");
-                $("#error-message").html("An error occurred: " + response.responseText);
-
-                console.error("An error occurred:", response);
+            // Add before_date and after_date to requestData only if they are not empty
+            if (before_date) {
+                requestData.before_date = before_date;
             }
-        });
-    }
-</script>
+            if (after_date) {
+                requestData.after_date = after_date;
+            }
+
+            // Add download key to requestData if isDownload is true
+            if (isDownload) {
+				console.log("Adding 'download' key to requestData"); // Debug line
+                requestData.download = "yes";
+            }
+			
+            $.ajax({
+                //url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
+                url: "http://127.0.0.1:5000/route_map_loading_color",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(requestData),
+                success: function(response) {
+                    if (isDownload) {
+						const csvData = response;
+						const blob = new Blob([csvData], {type: 'text/csv'});
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = 'data.csv';
+						a.click();
+						URL.revokeObjectURL(url);
+						$("#loading-message").addClass("d-none");
+                    } else {
+                        // Hide the loading message and error message
+                        $("#loading-message").addClass("d-none");
+                        $("#error-message").addClass("d-none");
+
+                        const newWindow = window.open("", "_blank");
+                        newWindow.document.write(response);
+                    }
+                },
+                error: function(response) {
+                    // Hide the loading message
+
+                    // Show the error message
+                    $("#error-message").removeClass("d-none");
+                    $("#error-message").html("An error occurred: " + response.responseText);
+
+                    console.error("An error occurred:", response);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
