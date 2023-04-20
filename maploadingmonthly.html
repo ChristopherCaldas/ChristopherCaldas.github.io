@@ -68,6 +68,9 @@
             error: function (response) {
                 alert("An error occurred: " + response.responseText);
             },
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("application/octet-stream");
+            },
             processData: false,
             responseType: "arraybuffer"
         });
