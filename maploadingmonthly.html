@@ -3,46 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargo Report Generator</title>
+    <title>Cargo Report</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-    <h1>Cargo Report Generator</h1>
-    <form id="reportForm">
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" required>
-        <br>
-        <label for="month">Month (YYYY-MM):</label>
-        <input type="text" id="month" name="month" pattern="\d{4}-\d{2}" required>
-        <br>
-        <button type="submit">Generate Report</button>
-    </form>
+<body class="bg-light">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="mt-4">Cargo Report</h1>
+        </div>
+    </div>
 
-    <script>
-        const form = document.getElementById("reportForm");
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const country = document.getElementById("country").value;
-            const month = document.getElementById("month").value;
+    <div class="row">
+        <div class="col-md-6">
+            <form id="report-form">
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" id="country" name="country" class="form-control" required>
+                </div>
 
-            const response = await fetch("/cargo_report", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ country: country, month: month })
-            });
+                <div class="mb-3">
+                    <label for="month" class="form-label">Month:</label>
+                    <input type="month" id="month" name="month" class="form-control" required>
+                </div>
 
-            if (response.ok) {
-                const blob = await response.blob();
-                const link = document.createElement("a");
-                link.href = URL.createObjectURL(blob);
-                link.download = "cargo_report.pdf";
-                link.click();
-                URL.revokeObjectURL(link.href);
-            } else {
-                alert("Error generating report.");
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $("#report-form").on("submit", function (event) {
+        event.preventDefault();
+
+        const country = $("#country").val();
+        const month = $("#month").val();
+
+        const requestData = {
+            country: country,
+            month: month
+        };
+
+        fetch("http://127.0.0.1:5000/cargo_report", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("An error occurred: " + response.statusText);
             }
+            return response.blob();
+        })
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cargo_report.pdf';
+            a.click();
+            URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            alert(error.message);
         });
-    </script>
+    });
+</script>
 </body>
 </html>
