@@ -46,33 +46,29 @@
             month: month
         };
 
-        $.ajax({
-            url: "http://127.0.0.1:5000/cargo_report",
+        fetch("http://127.0.0.1:5000/cargo_report", {
             method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(requestData),
-            success: function (response, status, xhr) {
-                const contentType = xhr.getResponseHeader("Content-Type");
-                if (contentType === "application/pdf") {
-                    const blob = new Blob([response], {type: contentType});
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'cargo_report.pdf';
-                    a.click();
-                    URL.revokeObjectURL(url);
-                } else {
-                    alert("An error occurred: " + response);
-                }
+            headers: {
+                "Content-Type": "application/json"
             },
-            error: function (response) {
-                alert("An error occurred: " + response.responseText);
-            },
-            beforeSend: function (xhr) {
-                xhr.overrideMimeType("application/octet-stream");
-            },
-            processData: false,
-            responseType: "blob" // Change this line to "blob"
+            body: JSON.stringify(requestData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("An error occurred: " + response.statusText);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cargo_report.pdf';
+            a.click();
+            URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            alert(error.message);
         });
     });
 </script>
