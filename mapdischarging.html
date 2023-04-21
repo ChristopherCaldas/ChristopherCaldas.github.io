@@ -38,7 +38,7 @@
       <div class="col-md-6">
         <form id="map-form">
           <div class="mb-3">
-            <label for="country" class="form-label">Loading Country:</label>
+            <label for="country" class="form-label">Importing Country:</label>
             <select id="country" name="country" class="form-select">
               <option value="" disabled selected>Select a country</option>
 			  <option value="China">China</option>
@@ -55,8 +55,6 @@
 			  <option value="Trinidad Tobago">Trinidad Tobago</option>
 			  <option value="S Arabia">S Arabia</option>
 			  
-
-
             </select>
           </div>
 
@@ -71,6 +69,8 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Generate Map</button>
+		  
+		  <button id="download-btn" class="btn btn-primary">Download Data</button>
         </form>
       </div>
     </div>
@@ -83,56 +83,93 @@
       </div>
     </div>
   </div>
-  <script>
-    $("#map-form").on("submit", function(event) {
-      event.preventDefault();
+    <script>
+        $("#map-form").on("submit", function(event) {
+            event.preventDefault();
+            handleFormSubmit(false);
+        });
 
-      const country = $("#country").val();
-      const before_date = $("#before_date").val();
-      const after_date = $("#after_date").val();
+		document.getElementById("download-btn").addEventListener("click", function(event) {
+			event.preventDefault();
+			handleFormSubmit(true);
+		});
+		function jsonToCSV(jsonData) {
+			const items = jsonData; // Assuming jsonData is an array of objects
+			const replacer = (key, value) => value === null ? '' : value;
+			const header = Object.keys(items[0]);
+			const csv = [
+				header.join(','), // Add the header
+				...items.map(item => header.map(fieldName => JSON.stringify(item[fieldName], replacer)).join(','))
+			].join('\r\n');
 
-      // Show the loading message
-      $("#loading-message").removeClass("d-none");
+			return csv;
+		}
+		
+        function handleFormSubmit(isDownload) {
+			console.log("isDownload:", isDownload); // Debug line
+            const country = $("#country").val();
+            const before_date = $("#before_date").val();
+            const after_date = $("#after_date").val();
 
-      // Create the data object with the country
-      const requestData = {
-        country: country,
-      };
+            // Show the loading message
+            $("#loading-message").removeClass("d-none");
 
-      // Add before_date and after_date to requestData only if they are not empty
-      if (before_date) {
-        requestData.before_date = before_date;
-      }
-      if (after_date) {
-        requestData.after_date = after_date;
-      }
+            // Create the data object with the country
+            const requestData = {
+                country: country,
+            };
 
-      $.ajax({
-        //url: "https://operations-data-api.ue.r.appspot.com/route_map_discharging,
-		url: "http://127.0.0.1:5000/route_map_discharging",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(requestData),
-        success: function(response) {
-          // Hide the loading message and error message
-          $("#loading-message").addClass("d-none");
-          $("#error-message").addClass("d-none");
+            // Add before_date and after_date to requestData only if they are not empty
+            if (before_date) {
+                requestData.before_date = before_date;
+            }
+            if (after_date) {
+                requestData.after_date = after_date;
+            }
 
-          const newWindow = window.open("", "_blank");
-          newWindow.document.write(response);
-        },
-        error: function(response) {
-          // Hide the loading message
-          $("#loading-message").addClass("d-none");
+            // Add download key to requestData if isDownload is true
+            if (isDownload) {
+				console.log("Adding 'download' key to requestData"); // Debug line
+                requestData.download = "yes";
+            }
+			
+            $.ajax({
+                url: "https://operations-data-api.ue.r.appspot.com/route_map_loading",
+                //url: "http://127.0.0.1:5000/route_map_loading",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(requestData),
+                success: function(response) {
+                    if (isDownload) {
+						const csvData = response;
+						const blob = new Blob([csvData], {type: 'text/csv'});
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = 'data.csv';
+						a.click();
+						URL.revokeObjectURL(url);
+						$("#loading-message").addClass("d-none");
+                    } else {
+                        // Hide the loading message and error message
+                        $("#loading-message").addClass("d-none");
+                        $("#error-message").addClass("d-none");
 
-          // Show the error message
-          $("#error-message").removeClass("d-none");
-          $("#error-message").html("An error occurred: " + response.responseText);
+                        const newWindow = window.open("", "_blank");
+                        newWindow.document.write(response);
+                    }
+                },
+                error: function(response) {
+                    // Hide the loading message
 
-          console.error("An error occurred:", response);
+                    // Show the error message
+                    $("#error-message").removeClass("d-none");
+                    $("#error-message").html("An error occurred: " + response.responseText);
+
+                    console.error("An error occurred:", response);
+                }
+            });
         }
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
