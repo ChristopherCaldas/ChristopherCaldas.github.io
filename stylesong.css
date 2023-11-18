@@ -1,65 +1,102 @@
+/* Import a fun font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Bangers', cursive; /* Playful font */
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #fafafa; /* Lighter background for a more vibrant look */
+    color: #333; /* Darker text for better readability */
 }
 
 header {
-    background-color: #333;
+    background-color: #ff6347; /* Tomato red for a fun and vibrant header */
     color: white;
     text-align: center;
     padding: 1em 0;
+    font-size: 2.5em; /* Larger font size for the header */
 }
 
 main {
-    padding-bottom: 50px; /* Adjust as needed */
+    padding: 20px 0; /* More padding for better spacing */
 }
 
 footer {
-    background-color: #333;
+    background-color: #ff6347; /* Matching the header for consistency */
     color: white;
     text-align: center;
     padding: 1em 0;
-    clear: both;
     position: relative;
     bottom: 0;
     width: 100%;
 }
 
 .container {
-    max-width: 960px; /* Or whatever width you prefer */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 15px; /* Optional, for some padding on the sides */
+    max-width: 960px; 
+    margin: 0 auto; /* Centering the container */
+    padding: 0 15px;
 }
 
-/* Centering Form Elements */
+/* Styling for form elements */
 form {
-    text-align: center; /* Center-aligns text and inline elements within the form */
+    text-align: center;
 }
 
 form .round,
 form .song {
-    margin-bottom: 20px; /* Space out each section of the form */
+    margin-bottom: 30px; /* More space for better separation of elements */
+    background-color: #f0f0f0; /* Light background for each form section */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
 }
 
-/* Styles for form elements */
 label, 
 input[type='text'], 
 select, 
 button {
-    display: block; /* Makes each element take the full width of its parent */
-    margin: 10px auto; /* Adds space around elements and centers them */
-    width: 80%; /* Adjust as needed */
-    max-width: 400px; /* Adjust as needed */
+    display: block;
+    margin: 10px auto;
+    width: 80%; 
+    max-width: 400px;
+    border: none;
+    padding: 10px;
+    border-radius: 4px; /* Rounded edges for inputs and buttons */
 }
 
 label {
-    text-align: left; /* Aligns the label text to the left */
-    margin-bottom: 5px; /* Space between label and input */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Larger label font for better visibility */
 }
 
 button {
-    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    cursor: pointer;
+    background-color: #32cd32; /* Lively green for the submit button */
+    color: white;
+    font-size: 1.2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for the button */
+    transition: background-color 0.3s; /* Smooth transition for button hover */
+}
+
+button:hover {
+    background-color: #28a745; /* Slightly darker green on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .container, label, input[type='text'], select, button {
+        width: 95%;
+    }
+}
+
+/* Further responsiveness for smaller devices */
+@media (max-width: 480px) {
+    header {
+        font-size: 2em;
+    }
+
+    form .round, form .song {
+        padding: 10px;
+    }
 }
