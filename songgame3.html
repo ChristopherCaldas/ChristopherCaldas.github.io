@@ -16,10 +16,32 @@
             <p>Guess who submitted which song for each situation. Submit your guesses below.</p>
         </section>
         <section id="game">
-            <!-- Update the action attribute with your Google Apps Script web app URL -->
             <form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbwUwhAME59A_sQ3ANy0GsHs65Ed69asokLUEewrvtz3FObVXQC__wxxrVY7Nj7gBobK/exec">
-                <input type="text" name="song1" placeholder="Guess for Song 1">
-                <!-- Add more input fields as per your requirement -->
+
+                <!-- Round 1 -->
+                <div class="round">
+                    <h3>Round 1</h3>
+                    <label for="song1">Song 1 Name:</label>
+                    <input type="text" name="song1" placeholder="Guess for Song 1">
+                    <!-- Add more songs for Round 1 as needed -->
+                </div>
+
+                <!-- Round 2 -->
+                <div class="round">
+                    <h3>Round 2</h3>
+                    <label for="song2">Song 2 Name:</label>
+                    <input type="text" name="song2" placeholder="Guess for Song 2">
+                    <!-- Add more songs for Round 2 as needed -->
+                </div>
+
+                <!-- Round 3 -->
+                <div class="round">
+                    <h3>Round 3</h3>
+                    <label for="song3">Song 3 Name:</label>
+                    <input type="text" name="song3" placeholder="Guess for Song 3">
+                    <!-- Add more songs for Round 3 as needed -->
+                </div>
+
                 <button type="submit">Submit Guesses</button>
             </form>
         </section>
