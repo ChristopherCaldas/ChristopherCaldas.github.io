@@ -7,270 +7,272 @@
     <link rel="stylesheet" href="stylesong.css">
 </head>
 <body>
-    <header>
-        <h1>Song Guessing Game</h1>
-    </header>
-    <main>
-        <section id="instructions">
-            <h2>Instructions</h2>
-            <p>Guess who submitted which song for each situation. Submit your guesses below.</p>
-        </section>
-        <section id="game">
-            <form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbwUwhAME59A_sQ3ANy0GsHs65Ed69asokLUEewrvtz3FObVXQC__wxxrVY7Nj7gBobK/exec">
+	<div class="container">
+		<header>
+			<h1>Song Guessing Game</h1>
+		</header>
+		<main>
+			<section id="instructions">
+				<h2>Instructions</h2>
+				<p>Guess who submitted which song for each situation. Submit your guesses below.</p>
+			</section>
+			<section id="game">
+				<form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbwUwhAME59A_sQ3ANy0GsHs65Ed69asokLUEewrvtz3FObVXQC__wxxrVY7Nj7gBobK/exec">
 
-                <!-- Player -->
-                <div class="round">
-                    <h3>Enter Your Name:</h3>
-                    <select name="player" id="player" class="song-select" data-round="0">
-						<option value="" disabled selected>Select a Player</option>
-						<option value="Arya">Arya</option>
-						<option value="Chris">Chris</option>
-						<option value="Diana">Diana</option>
-						<option value="Drew">Diana</option>
-						<option value="Eric">Eric</option>
-						<option value="Gabby">Gabby</option>
-						<option value="Gus">Gus</option>
-						<option value="Josh">Josh</option>
-						<option value="Katie">Katie</option>
-						<option value="Kenzie">Kenzie</option>
-						<option value="Sadie">Sadie</option>
-                    </select>
-                </div>
+					<!-- Player -->
+					<div class="round">
+						<h3>Enter Your Name:</h3>
+						<select name="player" id="player" class="song-select" data-round="0">
+							<option value="" disabled selected>Select a Player</option>
+							<option value="Arya">Arya</option>
+							<option value="Chris">Chris</option>
+							<option value="Diana">Diana</option>
+							<option value="Drew">Diana</option>
+							<option value="Eric">Eric</option>
+							<option value="Gabby">Gabby</option>
+							<option value="Gus">Gus</option>
+							<option value="Josh">Josh</option>
+							<option value="Katie">Katie</option>
+							<option value="Kenzie">Kenzie</option>
+							<option value="Sadie">Sadie</option>
+						</select>
+					</div>
 
-                <!-- Round 1 -->
-                <div class="round">
-                    <h3>Round 1</h3>
-                    <!-- Songs for Round 1 -->
-                    <div class="song">
-                        <label for="round1song1">Song 1:</label>
-                        <select name="round1song1" id="round1song1" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song1" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song2">Song 2:</label>
-                        <select name="round1song2" id="round1song2" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song2" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song3">Song 3:</label>
-                        <select name="round1song3" id="round1song3" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song3" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song1">Song 4:</label>
-                        <select name="round1song4" id="round1song4" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song4" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song5">Song 5:</label>
-                        <select name="round1song5" id="round1song5" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song5" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song6">Song 6:</label>
-                        <select name="round1song6" id="round1song6" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song6" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song7">Song 7:</label>
-                        <select name="round1song7" id="round1song7" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song7" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song8">Song 8:</label>
-                        <select name="round1song8" id="round1song8" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song8" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song9">Song 9:</label>
-                        <select name="round1song9" id="round1song9" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song9" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song10">Song 10:</label>
-                        <select name="round1song10" id="round1song10" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song10" class="feedback"></span>
-                    </div>
-					
-					<div class="song">
-                        <label for="round1song11">Song 11:</label>
-                        <select name="round1song11" id="round1song11" class="song-select" data-round="1">
-							<option value="" disabled selected>Select a Player</option>
-							<option value="Arya">Arya</option>
-							<option value="Chris">Chris</option>
-							<option value="Diana">Diana</option>
-							<option value="Drew">Diana</option>
-							<option value="Eric">Eric</option>
-							<option value="Gabby">Gabby</option>
-							<option value="Gus">Gus</option>
-							<option value="Josh">Josh</option>
-							<option value="Katie">Katie</option>
-							<option value="Kenzie">Kenzie</option>
-							<option value="Sadie">Sadie</option>
-                        </select>
-                        <span id="feedback-round1song11" class="feedback"></span>
-                    </div>
-					
+					<!-- Round 1 -->
+					<div class="round">
+						<h3>Round 1</h3>
+						<!-- Songs for Round 1 -->
+						<div class="song">
+							<label for="round1song1">Song 1:</label>
+							<select name="round1song1" id="round1song1" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song1" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song2">Song 2:</label>
+							<select name="round1song2" id="round1song2" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song2" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song3">Song 3:</label>
+							<select name="round1song3" id="round1song3" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song3" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song1">Song 4:</label>
+							<select name="round1song4" id="round1song4" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song4" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song5">Song 5:</label>
+							<select name="round1song5" id="round1song5" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song5" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song6">Song 6:</label>
+							<select name="round1song6" id="round1song6" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song6" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song7">Song 7:</label>
+							<select name="round1song7" id="round1song7" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song7" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song8">Song 8:</label>
+							<select name="round1song8" id="round1song8" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song8" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song9">Song 9:</label>
+							<select name="round1song9" id="round1song9" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song9" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song10">Song 10:</label>
+							<select name="round1song10" id="round1song10" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song10" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song11">Song 11:</label>
+							<select name="round1song11" id="round1song11" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Diana</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song11" class="feedback"></span>
+						</div>
+						
 
-					
-                <!-- Round 2 -->
-                <div class="round">
-                    <h3>Round 2</h3>
-                    <label for="song2">Song 2 Name:</label>
-                    <input type="text" name="song2" placeholder="Guess for Song 2">
-                    <!-- Add more songs for Round 2 as needed -->
-                </div>
+						
+					<!-- Round 2 -->
+					<div class="round">
+						<h3>Round 2</h3>
+						<label for="song2">Song 2 Name:</label>
+						<input type="text" name="song2" placeholder="Guess for Song 2">
+						<!-- Add more songs for Round 2 as needed -->
+					</div>
 
-                <!-- Round 3 -->
-                <div class="round">
-                    <h3>Round 3</h3>
-                    <label for="song3">Song 3 Name:</label>
-                    <input type="text" name="song3" placeholder="Guess for Song 3">
-                    <!-- Add more songs for Round 3 as needed -->
-                </div>
+					<!-- Round 3 -->
+					<div class="round">
+						<h3>Round 3</h3>
+						<label for="song3">Song 3 Name:</label>
+						<input type="text" name="song3" placeholder="Guess for Song 3">
+						<!-- Add more songs for Round 3 as needed -->
+					</div>
 
-                <button type="submit">Submit Guesses</button>
-            </form>
-        </section>
+					<button type="submit">Submit Guesses</button>
+				</form>
+			</section>
+		</div>
     </main>
     <footer>
         <p>Created for fun and music!</p>

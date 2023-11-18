@@ -25,3 +25,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.container {
+    max-width: 960px; /* or whatever width you prefer */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px; /* optional, for some padding on the sides */
+}
