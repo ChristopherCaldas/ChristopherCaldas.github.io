@@ -40,10 +40,17 @@ form {
     text-align: center;
 }
 
-form .round,
+form .round {
+    margin-bottom: 30px; /* More space for better separation of elements */
+    background-color: #e0e0e0; /* Slightly darker grey for round sections */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
+}
+
 form .song {
     margin-bottom: 30px; /* More space for better separation of elements */
-    background-color: #f0f0f0; /* Light background for each form section */
+    background-color: #f0f0f0; /* Light background for each song section */
     padding: 15px;
     border-radius: 8px; /* Rounded corners for a softer look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
