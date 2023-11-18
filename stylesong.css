@@ -13,8 +13,9 @@ header {
 }
 
 main {
-    padding-bottom: 50px; /* adjust as needed */
+    padding-bottom: 50px; /* Adjust as needed */
 }
+
 footer {
     background-color: #333;
     color: white;
@@ -27,8 +28,38 @@ footer {
 }
 
 .container {
-    max-width: 960px; /* or whatever width you prefer */
+    max-width: 960px; /* Or whatever width you prefer */
     margin-left: auto;
     margin-right: auto;
-    padding: 0 15px; /* optional, for some padding on the sides */
+    padding: 0 15px; /* Optional, for some padding on the sides */
+}
+
+/* Centering Form Elements */
+form {
+    text-align: center; /* Center-aligns text and inline elements within the form */
+}
+
+form .round,
+form .song {
+    margin-bottom: 20px; /* Space out each section of the form */
+}
+
+/* Styles for form elements */
+label, 
+input[type='text'], 
+select, 
+button {
+    display: block; /* Makes each element take the full width of its parent */
+    margin: 10px auto; /* Adds space around elements and centers them */
+    width: 80%; /* Adjust as needed */
+    max-width: 400px; /* Adjust as needed */
+}
+
+label {
+    text-align: left; /* Aligns the label text to the left */
+    margin-bottom: 5px; /* Space between label and input */
+}
+
+button {
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
 }
