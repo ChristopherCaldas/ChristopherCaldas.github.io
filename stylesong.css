@@ -13,15 +13,15 @@ header {
 }
 
 main {
-    padding: 2em;
+    padding-bottom: 50px; /* adjust as needed */
 }
-
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 1em 0;
-    position: absolute;
+    clear: both;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
