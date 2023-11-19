@@ -11,33 +11,40 @@ document.getElementById('guessForm').addEventListener('submit', function(event) 
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    var selections = {}; // To keep track of selections for each round
+    var allDropdowns = document.querySelectorAll('.song-select');
 
-    document.querySelectorAll('.song-select').forEach(function(select) {
+    allDropdowns.forEach(function(select) {
         select.addEventListener('change', function() {
             var round = this.getAttribute('data-round');
-            var songId = this.getAttribute('id');
-            var player = this.value;
-            var feedbackElement = document.getElementById('feedback-' + songId);
-
-            // Reset selections if a new choice is made
-            if (!selections[round]) {
-                selections[round] = [];
-            }
-
-            // Check if this player has already been selected in this round
-            if (player && selections[round].includes(player)) {
-                // Duplicate selection - update feedback
-                feedbackElement.textContent = '⚠️ Already selected in this round';
-                feedbackElement.style.color = 'red';
-            } else {
-                // Valid selection - update selections and clear feedback
-                if (player) {
-                    selections[round].push(player);
-                }
-                feedbackElement.textContent = '';
-                feedbackElement.style.color = 'initial';
-            }
+            updateSelectionsForRound(round, allDropdowns);
         });
     });
+
+    function updateSelectionsForRound(round, dropdowns) {
+        var selections = [];
+        var dropdownsInRound = Array.from(dropdowns).filter(dropdown => dropdown.getAttribute('data-round') === round);
+
+        // Reset feedback for all dropdowns in this round
+        dropdownsInRound.forEach(function(dropdown) {
+            var feedbackElement = document.getElementById('feedback-' + dropdown.id);
+            feedbackElement.textContent = '';
+            feedbackElement.style.color = 'initial';
+        });
+
+        // Check for duplicate selections and update feedback
+        dropdownsInRound.forEach(function(dropdown) {
+            var player = dropdown.value;
+            var feedbackElement = document.getElementById('feedback-' + dropdown.id);
+
+            if (player) {
+                if (selections.includes(player)) {
+                    // Duplicate selection - update feedback
+                    feedbackElement.textContent = '⚠️ Already selected in this round';
+                    feedbackElement.style.color = 'red';
+                } else {
+                    selections.push(player);
+                }
+            }
+        });
+    }
 });
