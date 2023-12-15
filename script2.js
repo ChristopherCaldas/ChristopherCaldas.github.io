@@ -16,9 +16,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var allDropdowns = document.querySelectorAll('.song-select');
 
     allDropdowns.forEach(function(select) {
+        let lastValue = select.value; // Keep track of the last value
+
         select.addEventListener('change', function() {
+            // Reset the count for the previous selection
+            if (lastValue) {
+                playerSelectionCount[lastValue] = Math.max(0, (playerSelectionCount[lastValue] || 0) - 1);
+            }
+
             var round = this.getAttribute('data-round');
             updateSelectionsForRound(round, allDropdowns);
+            lastValue = select.value; // Update last value
         });
     });
 
@@ -40,7 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (player) {
                 // Update global selection count
-                playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
+                if (!selections.includes(player)) {
+                    playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
+                }
 
                 if (playerSelectionCount[player] > 5) {
                     feedbackElement.textContent = '⚠️ Selected more than 5 times';
