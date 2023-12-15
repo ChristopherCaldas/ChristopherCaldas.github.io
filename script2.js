@@ -38,16 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
             var player = dropdown.value;
             var feedbackElement = document.getElementById('feedback-' + dropdown.id);
 
-		if (playerSelectionCount[player] > 5) {
-			feedbackElement.textContent = '⚠️ Selected more than 5 times';
-			feedbackElement.style.color = 'red';
-		} else if (playerSelectionCount[player] < 5) {
-			// Assuming playerSelectionCount[player] has been initialized and updated elsewhere
-			feedbackElement.textContent = `Selected ${playerSelectionCount[player]} times this round`;
-			feedbackElement.style.color = 'blue'; // Change the color if needed
-		} else {
-			selections.push(player);
-		}
+            if (player) {
+                // Update global selection count
+                playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
+
+                if (playerSelectionCount[player] > 5) {
+                    feedbackElement.textContent = '⚠️ Selected more than 5 times';
+                    feedbackElement.style.color = 'red';
+                } else {
+                    // Show the number of times this player has been selected
+                    feedbackElement.textContent = `Selected ${playerSelectionCount[player]} time(s)`;
+                    feedbackElement.style.color = 'green';
+                    selections.push(player);
+                }
+            }
         });
     }
 });
