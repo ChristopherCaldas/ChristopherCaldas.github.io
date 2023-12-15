@@ -1,4 +1,4 @@
-var globalPlayerSelectionCount = {}; // Global object to track overall player selections
+var playerSelectionCount = {}; // Object to track player selections per round
 var lastSelections = {}; // Object to track the last selection of each dropdown
 
 document.getElementById('guessForm').addEventListener('submit', function(event) {
@@ -18,21 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     allDropdowns.forEach(function(select) {
         select.addEventListener('change', function() {
+            var round = this.getAttribute('data-round');
             var currentSelection = select.value;
             var previousSelection = lastSelections[select.id];
+
+            // Initialize round count object if it doesn't exist
+            if (!playerSelectionCount[round]) {
+                playerSelectionCount[round] = {};
+            }
 
             // Update counts only if the selection has changed
             if (currentSelection !== previousSelection) {
                 if (previousSelection) {
-                    globalPlayerSelectionCount[previousSelection]--;
+                    playerSelectionCount[round][previousSelection] = Math.max(0, (playerSelectionCount[round][previousSelection] || 0) - 1);
                 }
                 if (currentSelection) {
-                    globalPlayerSelectionCount[currentSelection] = (globalPlayerSelectionCount[currentSelection] || 0) + 1;
+                    playerSelectionCount[round][currentSelection] = (playerSelectionCount[round][currentSelection] || 0) + 1;
                 }
                 lastSelections[select.id] = currentSelection;
             }
 
-            var round = this.getAttribute('data-round');
             updateSelectionsForRound(round, allDropdowns);
         });
     });
@@ -53,12 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var feedbackElement = document.getElementById('feedback-' + dropdown.id);
 
             if (player) {
-                if (globalPlayerSelectionCount[player] > 5) {
-                    feedbackElement.textContent = '⚠️ Selected more than 5 times';
+                var playerCountInRound = playerSelectionCount[round][player] || 0;
+
+                if (playerCountInRound > 5) {
+                    feedbackElement.textContent = '⚠️ Selected more than 5 times in this round';
                     feedbackElement.style.color = 'red';
                 } else {
-                    // Show the number of times this player has been selected across all dropdowns
-                    feedbackElement.textContent = `Selected ${globalPlayerSelectionCount[player]} time(s)`;
+                    // Show the number of times this player has been selected in this round
+                    feedbackElement.textContent = `Selected ${playerCountInRound} time(s) in this round`;
                     feedbackElement.style.color = 'green';
                 }
             }
