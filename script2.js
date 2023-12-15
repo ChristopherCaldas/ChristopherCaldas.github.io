@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update global selection count
                 playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
 
-                if (selections.includes(player)) {
-                    feedbackElement.textContent = '⚠️ Already selected in this round';
-                    feedbackElement.style.color = 'red';
-                } else if (playerSelectionCount[player] > 5) {
+                if (playerSelectionCount[player] > 5) {
                     feedbackElement.textContent = '⚠️ Selected more than 5 times';
                     feedbackElement.style.color = 'red';
+                } else if (selections.includes(player)) {
+					feedbackElement.textContent = `Selected ${playerSelectionCount[player]} times this round`;
+                    feedbackElement.style.color = 'blue';
                 } else {
                     selections.push(player);
                 }
