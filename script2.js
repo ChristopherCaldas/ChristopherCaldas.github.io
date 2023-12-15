@@ -1,8 +1,10 @@
+var playerSelectionCount = {}; // Global object to track player selections
+
 document.getElementById('guessForm').addEventListener('submit', function(event) {
     var song1Input = document.getElementsByName('song1')[0].value;
     // Validate other fields as needed
 
-    if (!song1Input) { // Check if the field is empty
+    if (!song1Input) {
         alert('Missing A Selection');
         event.preventDefault(); // Prevent form submission
     }
@@ -37,9 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var feedbackElement = document.getElementById('feedback-' + dropdown.id);
 
             if (player) {
+                // Update global selection count
+                playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
+
                 if (selections.includes(player)) {
-                    // Duplicate selection - update feedback
                     feedbackElement.textContent = '⚠️ Already selected in this round';
+                    feedbackElement.style.color = 'red';
+                } else if (playerSelectionCount[player] > 5) {
+                    feedbackElement.textContent = '⚠️ Selected more than 5 times';
                     feedbackElement.style.color = 'red';
                 } else {
                     selections.push(player);
