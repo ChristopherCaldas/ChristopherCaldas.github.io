@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Guessing Game</title>
+    <link rel="stylesheet" href="stylesong.css">
+</head>
+
+<body>
+	<header>
+		<h1>Song Game 4: The Back Down</h1>
+	</header>
+	<div class="container">
+		<main>
+			<section id="instructions">
+				<h2>Instructions</h2>
+				<p>Who's the mystery DJ for each funky situation? Place your wild guesses here! And hey, don't worry, the page will give you a silly nudge if you accidentally name a player twice in the same round. Let's get guessing!</p>
+			</section>
+			<section id="game">
+				<form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbwUwhAME59A_sQ3ANy0GsHs65Ed69asokLUEewrvtz3FObVXQC__wxxrVY7Nj7gBobK/exec">
+
+					<!-- Player -->
+					<div class="round">
+						<h3>Enter Your Name:</h3>
+						<select name="player" id="player" class="song-select" data-round="0">
+							<option value="" disabled selected>Select a Player</option>
+							<option value="Arya">Arya</option>
+							<option value="Diana">Diana</option>
+							<option value="Drew">Drew</option>
+							<option value="Eric">Eric</option>
+							<option value="Gus">Gus</option>
+							<option value="Josh">Josh</option>
+							<option value="Katie">Katie</option>
+							<option value="Kenzie">Kenzie</option>
+							<option value="Sadie">Sadie</option>
+						</select>
+					</div>
+
+					<!-- Round 1 -->
+					<div class="round">
+						<h3>Lets Do It BBY</h3>
+						<!-- Songs for Round 1 -->
+						<div class="song">
+							<label for="round1song1">Song 1: Astro Zombies - The Misfits</label>
+							<select name="round1song1" id="round1song1" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song1" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song2">Song 2: Backseat Freestyle - Kendrick Lamar</label>
+							<select name="round1song2" id="round1song2" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song2" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song3">Song 3: Covered In Money! - JPEGMAFIA</label>
+							<select name="round1song3" id="round1song3" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song3" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song1">Song 4: Dancing With Myself - Generation X</label>
+							<select name="round1song4" id="round1song4" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song4" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song5">Song 5: Dern Kala - Khruangbin</label>
+							<select name="round1song5" id="round1song5" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song5" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song6">Song 6: Immigrant Song - Led Zeppelin</label>
+							<select name="round1song6" id="round1song6" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song6" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song7">Song 7: Lo Mein - Lil Uzi Vert</label>
+							<select name="round1song7" id="round1song7" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song7" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song8">Song 8: Middle Child - J Cole</label>
+							<select name="round1song8" id="round1song8" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song8" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song9">Song 9: The Other Side Of Paradise - Glass Animals</label>
+							<select name="round1song9" id="round1song9" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song9" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song10">Song 10: Twinz - Big Pun & Fat Joe</label>
+							<select name="round1song10" id="round1song10" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song10" class="feedback"></span>
+						</div>
+						
+						<div class="song">
+							<label for="round1song11">Song 11: Vivid Dreams - KAYTRANADA</label>
+							<select name="round1song11" id="round1song11" class="song-select" data-round="1">
+								<option value="" disabled selected>Select a Player</option>
+								<option value="Arya">Arya</option>
+								<option value="Chris">Chris</option>
+								<option value="Diana">Diana</option>
+								<option value="Drew">Drew</option>
+								<option value="Eric">Eric</option>
+								<option value="Gabby">Gabby</option>
+								<option value="Gus">Gus</option>
+								<option value="Josh">Josh</option>
+								<option value="Katie">Katie</option>
+								<option value="Kenzie">Kenzie</option>
+								<option value="Sadie">Sadie</option>
+							</select>
+							<span id="feedback-round1song11" class="feedback"></span>
+						</div>
+					</div>
+						
+					<button type="submit">Submit Guesses</button>
+				</form>
+			</section>
+		</div>
+    <footer>
+        <p>Rhythm Riddlers Redacted</p>
+    </footer>
+    <script src="script.js"></script>
+	
+    </main>
+</body>
+</html>
