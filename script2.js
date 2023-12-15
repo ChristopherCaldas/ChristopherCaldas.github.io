@@ -1,4 +1,5 @@
-var playerSelectionCount = {}; // Global object to track player selections
+var globalPlayerSelectionCount = {}; // Global object to track overall player selections
+var lastSelections = {}; // Object to track the last selection of each dropdown
 
 document.getElementById('guessForm').addEventListener('submit', function(event) {
     var song1Input = document.getElementsByName('song1')[0].value;
@@ -16,22 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
     var allDropdowns = document.querySelectorAll('.song-select');
 
     allDropdowns.forEach(function(select) {
-        let lastValue = select.value; // Keep track of the last value
-
         select.addEventListener('change', function() {
-            // Reset the count for the previous selection
-            if (lastValue) {
-                playerSelectionCount[lastValue] = Math.max(0, (playerSelectionCount[lastValue] || 0) - 1);
+            var currentSelection = select.value;
+            var previousSelection = lastSelections[select.id];
+
+            // Update counts only if the selection has changed
+            if (currentSelection !== previousSelection) {
+                if (previousSelection) {
+                    globalPlayerSelectionCount[previousSelection]--;
+                }
+                if (currentSelection) {
+                    globalPlayerSelectionCount[currentSelection] = (globalPlayerSelectionCount[currentSelection] || 0) + 1;
+                }
+                lastSelections[select.id] = currentSelection;
             }
 
             var round = this.getAttribute('data-round');
             updateSelectionsForRound(round, allDropdowns);
-            lastValue = select.value; // Update last value
         });
     });
 
     function updateSelectionsForRound(round, dropdowns) {
-        var selections = [];
         var dropdownsInRound = Array.from(dropdowns).filter(dropdown => dropdown.getAttribute('data-round') === round);
 
         // Reset feedback for all dropdowns in this round
@@ -47,19 +53,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var feedbackElement = document.getElementById('feedback-' + dropdown.id);
 
             if (player) {
-                // Update global selection count
-                if (!selections.includes(player)) {
-                    playerSelectionCount[player] = (playerSelectionCount[player] || 0) + 1;
-                }
-
-                if (playerSelectionCount[player] > 5) {
+                if (globalPlayerSelectionCount[player] > 5) {
                     feedbackElement.textContent = '⚠️ Selected more than 5 times';
                     feedbackElement.style.color = 'red';
                 } else {
-                    // Show the number of times this player has been selected
-                    feedbackElement.textContent = `Selected ${playerSelectionCount[player]} time(s)`;
+                    // Show the number of times this player has been selected across all dropdowns
+                    feedbackElement.textContent = `Selected ${globalPlayerSelectionCount[player]} time(s)`;
                     feedbackElement.style.color = 'green';
-                    selections.push(player);
                 }
             }
         });
