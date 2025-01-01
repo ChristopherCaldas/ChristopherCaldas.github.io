@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Song Guessing Game</title>
+      <link rel="stylesheet" href="stylesong.css">
+   </head>
+   <body>
+      <header>
+         <h1>Song Game 6: 2025</h1>
+      </header>
+      <div class="container">
+         <main>
+            <section id="instructions">
+               <h2>Instructions</h2>
+               <p>Who's the mystery DJ for each funky situation? Place your wild guesses here! And hey, don't worry, the page will give you a silly nudge if you accidentally name a player twice in the same round. Let's get guessing!</p>
+            </section>
+            <section id="game">
+               <form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbyv2NYAiUaIFC7GwaMK-2ZJph4fmC_EZGcHQouYDQ6BPxQNVqPx_lhBkz3Dea4ir07-/exec">
+                  <!-- Player -->						
+                  <div class="round">
+                     <h3>Enter Your Name:</h3>
+                     <select name="player" id="player" class="song-select" data-round="0">
+                        <option value="" disabled selected>Select a Player</option>
+                        <option value="Arya">Arya</option>
+                        <option value="Chris">Chris</option>
+                        <option value="Diana">Diana</option>
+                        <option value="Drew">Drew</option>
+                        <option value="Eric">Eric</option>
+                        <option value="Gabby">Gabby</option>
+                        <option value="Gus">Gus</option>
+                        <option value="Josh">Josh</option>
+                        <option value="Katie">Katie</option>
+                        <option value="Kenzie">Kenzie</option>
+                     </select>
+                  </div>
+                  <!-- Round 1 -->
+                  <div class="round">
+                     <h3>Question 1: Boat Song</h3>
+                     <!-- Songs for Round 1 -->
+                     <div class="song">
+                        <label for="round1song1">Song 1: 360 - Charli XCX</label>
+                        <select name="round1song1" id="round1song1" class="song-select" data-round="1">
+                           <option value="" disabled selected>Select a Player</option>
+                        <option value="Arya">Arya</option>
+                        <option value="Chris">Chris</option>
+                        <option value="Diana">Diana</option>
+                        <option value="Drew">Drew</option>
+                        <option value="Eric">Eric</option>
+                        <option value="Gabby">Gabby</option>
+                        <option value="Gus">Gus</option>
+                        <option value="Josh">Josh</option>
+                        <option value="Katie">Katie</option>
+                        <option value="Kenzie">Kenzie</option>
+                        </select>
+                        <span id="feedback-round1song1" class="feedback"></span>
+                     </div>
+                  </div>
+                  <button type="submit">Submit Guesses</button>
+               </form>
+            </section>
+      </div>
+      <footer>
+      <p>Rhythm Riddlers Redacted</p>
+      </footer>
+      <script src="script.js"></script>
+      </main>
+   </body>
+</html>
