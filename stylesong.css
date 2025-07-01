@@ -1,193 +1,107 @@
 /* Import a fun font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-*{
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-	z-index:0;
-}
-
 body {
-	font-family: 'Bangers', cursive;
-	background: linear-gradient(to bottom, #fff1a8, #ffeebb);
-	color: #333;
+    font-family: 'Bangers', cursive; /* Playful font */
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa; /* Lighter background for a more vibrant look */
+    color: #333; /* Darker text for better readability */
 }
 
-header, footer {
-	background-color: #ff6347;
-	color: white;
-	text-align: center;
-	padding: 1em 0;
-	font-size: 2.5em;
+header {
+    background-color: #03e8fc; /* Tomato red for a fun and vibrant header */
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 2.5em; /* Larger font size for the header */
+}
+
+main {
+    padding: 20px 0; /* More padding for better spacing */
+}
+
+footer {
+    background-color: #ff6347; /* Matching the header for consistency */
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 2.5em; /* Larger font size for the header */
 }
 
 .container {
-	max-width: 960px; 
-	margin: 0 auto;
-	padding: 0 15px;
+    max-width: 960px; 
+    margin: 0 auto; /* Centering the container */
+    padding: 0 15px;
 }
 
-ul {
-	list-style: none;
-}
-
-nav {
-	background-color: #ffb347;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 30px;
-	position: relative;
-	z-index: 999;
-}
-
-.menu-ctn > li {
-	display: inline-block;
-	color: white;
-	background-color: #ffe066;
-	font-family: 'Bangers', cursive;
-	padding: 10px 30px;
-	transition: all 0.5s ease;
-	position: relative;
-	border-radius: 10px;
-	margin: 5px;
-}
-
-.menu-ctn li:hover {
-	cursor: pointer;
-	background-color: #ff6f61;
-	color: white;
-}
-
-#dropdown1,
-#dropdown2 {
-	display: none;
-	position: absolute;
-	width: 100%;
-	color: #333;
-	background-color: #fdfcdc;
-	border: 1px solid #ffd700;
-	text-align: center;
-	left: 0;
-	top: 100%;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-#dropdown1 li,
-#dropdown2 li {
-	padding: 10px 15px;
-}
-
-#dropdown1 li a,
-#dropdown2 li a,
-.menu-ctn a {
-	color: #333;
-	text-decoration: none;
-}
-
-#dropdown1.active,
-#dropdown2.active {
-	display: block;
-	z-index: 99 !important;
-}
-
-#dropdown1.inactive,
-#dropdown2.inactive {
-	display: none;
-}
-
-.biography {
-	font-family: 'Bangers', cursive;
-	text-align: center;
-	color: #333;
-	padding: 100px 20px;
-	font-size: 20px;
-	background-color: #fff8dc;
-}
-
-.mainQuote {
-	font-family: 'Bangers', cursive;
-	text-align: center;
-	color: #ff6f61;
-	padding: 100px 20px;
-	font-size: 30px;
-}
-
+/* Styling for form elements */
 form {
-	text-align: center;
+    text-align: center;
 }
 
-form .round, form .song {
-	margin-bottom: 30px;
-	background-color: #fceabb;
-	padding: 15px;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+form .round {
+    margin-bottom: 30px; /* More space for better separation of elements */
+    background-color: #e0e0e0; /* Slightly darker grey for round sections */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
+}
+
+form .song {
+    margin-bottom: 30px; /* More space for better separation of elements */
+    background-color: #f0f0f0; /* Light background for each song section */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
 }
 
 label, 
 input[type='text'], 
 select, 
 button {
-	display: block;
-	margin: 10px auto;
-	width: 80%; 
-	max-width: 400px;
-	border: none;
-	padding: 10px;
-	border-radius: 4px;
+    display: block;
+    margin: 10px auto;
+    width: 80%; 
+    max-width: 400px;
+    border: none;
+    padding: 10px;
+    border-radius: 4px; /* Rounded edges for inputs and buttons */
 }
 
 label {
-	text-align: center;
-	margin-bottom: 10px;
-	font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Larger label font for better visibility */
 }
 
 button {
-	cursor: pointer;
-	background-color: #ff6347;
-	color: white;
-	font-size: 1.2em;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	transition: background-color 0.3s;
+    cursor: pointer;
+    background-color: #ff6347; /* Lively green for the submit button */
+    color: white;
+    font-size: 1.2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for the button */
+    transition: background-color 0.3s; /* Smooth transition for button hover */
 }
 
 button:hover {
-	background-color: #28a745;
+    background-color: #28a745; /* Slightly darker green on hover */
 }
 
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 4 10px;
-}
-
-.column {
-	flex: 50%;
-	padding: 4 10px;
-}
-
-.column img {
-	margin-top: 4px;
-	vertical-align: middle;
-	border-radius: 10px;
-	box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-}
-
+/* Responsive design adjustments */
 @media (max-width: 768px) {
-	.container, label, input[type='text'], select, button {
-		width: 95%;
-	}
+    .container, label, input[type='text'], select, button {
+        width: 95%;
+    }
 }
 
+/* Further responsiveness for smaller devices */
 @media (max-width: 480px) {
-	header, footer {
-		font-size: 2em;
-	}
+    header {
+        font-size: 2em;
+    }
 
-	form .round, form .song {
-		padding: 10px;
-	}
+    form .round, form .song {
+        padding: 10px;
+    }
 }
