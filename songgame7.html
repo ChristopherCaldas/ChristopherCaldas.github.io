@@ -35,11 +35,6 @@
                      </select>
                   </div>
 
-                  <!-- Expanded Rounds with 9 Songs Each -->
-                  <!-- Rounds 1 to 4 -->
-                  <!-- Looping manually to cover 38 fields -->
-
-                  <!-- Helper to repeat player options -->
                   <script>
                     const playerOptions = `<option value="" disabled selected>Select a Player</option>
                         <option value="Abby">Abby</option>
@@ -51,64 +46,88 @@
                         <option value="Josh">Josh</option>
                         <option value="Katie">Katie</option>
                         <option value="Kenzie">Kenzie</option>`;
+
+                    const rounds = [
+                      {
+                        title: "Toxic Anthem",
+                        id: 1,
+                        songs: [
+                          "All Star - Smash Mouth",
+                          "Toxic - Britney Spears",
+                          "Mr. Brightside - The Killers",
+                          "Since U Been Gone - Kelly Clarkson",
+                          "Firework - Katy Perry",
+                          "WAP - Cardi B",
+                          "Rolling in the Deep - Adele",
+                          "Call Me Maybe - Carly Rae Jepsen",
+                          "Bad Romance - Lady Gaga"
+                        ]
+                      },
+                      {
+                        title: "Last Day of School",
+                        id: 2,
+                        songs: [
+                          "Good Riddance - Green Day",
+                          "School's Out - Alice Cooper",
+                          "Graduation - Vitamin C",
+                          "I Gotta Feeling - Black Eyed Peas",
+                          "Don't Stop Believin' - Journey",
+                          "Unwritten - Natasha Bedingfield",
+                          "Yeah! - Usher",
+                          "Closing Time - Semisonic",
+                          "Time of Your Life - Green Day"
+                        ]
+                      },
+                      {
+                        title: "Worst Karaoke Song",
+                        id: 3,
+                        songs: [
+                          "Bohemian Rhapsody - Queen",
+                          "My Heart Will Go On - Celine Dion",
+                          "Barbie Girl - Aqua",
+                          "Wonderwall - Oasis",
+                          "Achy Breaky Heart - Billy Ray Cyrus",
+                          "Friday - Rebecca Black",
+                          "Total Eclipse of the Heart - Bonnie Tyler",
+                          "Tequila - The Champs",
+                          "I'm Too Sexy - Right Said Fred"
+                        ]
+                      },
+                      {
+                        title: "USA USA USA",
+                        id: 4,
+                        songs: [
+                          "Born in the USA - Bruce Springsteen",
+                          "Party in the USA - Miley Cyrus",
+                          "American Idiot - Green Day",
+                          "Surfin' USA - The Beach Boys",
+                          "Living in America - James Brown",
+                          "American Woman - Lenny Kravitz",
+                          "Courtesy of the Red, White and Blue - Toby Keith",
+                          "Firework - Katy Perry",
+                          "God Bless the USA - Lee Greenwood"
+                        ]
+                      }
+                    ];
+
+                    rounds.forEach(round => {
+                      document.write(`<div class="round"><h3>Round ${round.id}: ${round.title}</h3>`);
+                      round.songs.forEach((song, idx) => {
+                        const songNum = idx + 1;
+                        const songId = `round${round.id}song${songNum}`;
+                        document.write(`
+                          <div class="song">
+                            <label for="${songId}">${song}</label>
+                            <select name="${songId}" id="${songId}" class="song-select" data-round="${round.id}">
+                              ${playerOptions}
+                            </select>
+                            <span id="feedback-${songId}" class="feedback"></span>
+                          </div>
+                        `);
+                      });
+                      document.write(`</div>`);
+                    });
                   </script>
-
-                  <!-- Round 1 -->
-                  <div class="round">
-                     <h3>Round 1: Toxic Anthem</h3>
-                     <!-- 9 song selects -->
-                     <script>for (let i = 1; i <= 9; i++) document.write(`
-                        <div class="song">
-                           <label for="round1song${i}">Song ${i}</label>
-                           <select name="round1song${i}" id="round1song${i}" class="song-select" data-round="1">
-                              ${playerOptions}
-                           </select>
-                           <span id="feedback-round1song${i}" class="feedback"></span>
-                        </div>
-                     `);</script>
-                  </div>
-
-                  <!-- Round 2 -->
-                  <div class="round">
-                     <h3>Round 2: Last Day of School</h3>
-                     <script>for (let i = 1; i <= 9; i++) document.write(`
-                        <div class="song">
-                           <label for="round2song${i}">Song ${i}</label>
-                           <select name="round2song${i}" id="round2song${i}" class="song-select" data-round="2">
-                              ${playerOptions}
-                           </select>
-                           <span id="feedback-round2song${i}" class="feedback"></span>
-                        </div>
-                     `);</script>
-                  </div>
-
-                  <!-- Round 3 -->
-                  <div class="round">
-                     <h3>Round 3: Worst Karaoke Song</h3>
-                     <script>for (let i = 1; i <= 9; i++) document.write(`
-                        <div class="song">
-                           <label for="round3song${i}">Song ${i}</label>
-                           <select name="round3song${i}" id="round3song${i}" class="song-select" data-round="3">
-                              ${playerOptions}
-                           </select>
-                           <span id="feedback-round3song${i}" class="feedback"></span>
-                        </div>
-                     `);</script>
-                  </div>
-
-                  <!-- Round 4 -->
-                  <div class="round">
-                     <h3>Round 4: USA USA USA</h3>
-                     <script>for (let i = 1; i <= 9; i++) document.write(`
-                        <div class="song">
-                           <label for="round4song${i}">Song ${i}</label>
-                           <select name="round4song${i}" id="round4song${i}" class="song-select" data-round="4">
-                              ${playerOptions}
-                           </select>
-                           <span id="feedback-round4song${i}" class="feedback"></span>
-                        </div>
-                     `);</script>
-                  </div>
 
                   <button type="submit">Submit Guesses</button>
                </form>
