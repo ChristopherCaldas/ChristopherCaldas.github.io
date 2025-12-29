@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Song Guessing Game</title>
+      <link rel="stylesheet" href="stylesong.css">
+   </head>
+   <body>
+      <header>
+         <h1>Song Game 8: J & D Blackout Edition</h1>
+      </header>
+      <div class="container">
+         <main>
+            <section id="instructions">
+               <h2>Instructions</h2>
+               <p>Who's the mystery DJ for each funky situation? Place your wild guesses here! And hey, don't worry, the page will give you a silly nudge if you accidentally name a player twice in the same round. Let's get guessing!</p>
+            </section>
+            <section id="game">
+               <form id="guessForm" method="post" action="https://script.google.com/macros/s/AKfycbybetmyMGMdwB5ymc2pvidgsebYALWFsVXqRqdQXpkByxzfZZy3qvSzC9CE7duXBfI4/exec">
+                  <!-- Player -->						
+                  <div class="round">
+                     <h3>Enter Your Name:</h3>
+                     <select name="player" id="player" class="song-select" data-round="0">
+                        <option value="" disabled selected>Select a Player</option>
+                        <option value="Arya">Arya</option>
+                        <option value="Chris">Chris</option>
+						<option value="Cindy">Cindy</option>
+                        <option value="Diana">Diana</option>
+						<option value="Drew">Drew</option>
+                        <option value="Eric">Eric</option>
+						<option value="Gus">Gus</option>
+                        <option value="Josh">Josh</option>
+                        <option value="Katie">Katie</option>
+                        <option value="Kenzie">Kenzie</option>
+						<option value="Patricia">Patricia</option>
+						<option value="Tyler">Tyler</option>
+                     </select>
+                  </div>
+
+                  <script>
+                    const playerOptions = `<option value="" disabled selected>Select a Player</option>
+                        <option value="Arya">Arya</option>
+                        <option value="Chris">Chris</option>
+						<option value="Cindy">Cindy</option>
+                        <option value="Diana">Diana</option>
+						<option value="Drew">Drew</option>
+                        <option value="Eric">Eric</option>
+						<option value="Gus">Gus</option>
+                        <option value="Josh">Josh</option>
+                        <option value="Katie">Katie</option>
+                        <option value="Kenzie">Kenzie</option>
+						<option value="Patricia">Patricia</option>
+						<option value="Tyler">Tyler</option>;
+
+                    const rounds = [
+                      {
+                        title: "Toxic Anthem",
+                        id: 1,
+                        songs: [
+                          "007(OG Mix) - Duckwrth",
+                          "Dynamite - Taio Cruz",
+                          "Family Matters - Drake",
+                          "Fancy - Iggy Azalea",
+                          "Lord Pretty Flacko Jodye 2 - A$AP Rocky",
+                          "Mean girls - Charli xcx",
+                          "Revenge - XXXTENTACION",
+                          "wokeuplikethis* - Playboy Carti",
+                          "Yummy - Righteous Remix - Ayesha Erotica"
+                        ]
+                      },
+                      {
+                        title: "Last Day of School",
+                        id: 2,
+                        songs: [
+                          "Beverly Hills - Weezer",
+                          "Everytime We Touch - Cascada",
+                          "Good Time - Owl City",
+                          "Hello - Martin Solveig",
+                          "Latch - Disclosure",
+                          "Play My Music - Jonas Brothers",
+                          "Shotgun - George Ezra",
+                          "Uptown Funk - Bruno Mars",
+                          "Wetsuit - The Vaccines"
+                        ]
+                      },
+                      {
+                        title: "Worst Karaoke Song",
+                        id: 3,
+                        songs: [
+                          "Beautiful Things - Benson Boone",
+                          "Dancing Queen - ABBA",
+                          "Hey, Soul Sister - Train",
+                          "Love the Way You Lie - Eminem",
+                          "Friday - Rebecca Black",
+                          "Nine Ball - Zach Bryan",
+                          "Rock Lobster - The B52's",
+                          "Rolling in the Deep - Shallow",
+						  "Sweet Caroline - Neil Diamond"
+                        ]
+                      },
+                      {
+                        title: "USA USA USA",
+                        id: 4,
+                        songs: [
+                          "All-American Girl - Carrie Underwood",
+                          "American Pie - Don McLean",
+                          "Chicken Fried - Zac Brown Band",
+                          "Fortunate Son - Creedence Clearwater Revival",
+                          "Free Bird - Lynard Skynyrd",
+                          "Glory Days - Bruce Springsteen",
+                          "Old Town Road - Lil Nas X",
+                          "Sweet Child O' Mine - Guns N' Roses",
+                          "The Battle Of New Orleans - Jimmy Horton"
+                        ]
+                      }
+                    ];
+
+                    rounds.forEach(round => {
+                      document.write(`<div class="round"><h3>Round ${round.id}: ${round.title}</h3>`);
+                      round.songs.forEach((song, idx) => {
+                        const songNum = idx + 1;
+                        const songId = `round${round.id}song${songNum}`;
+                        document.write(`
+                          <div class="song">
+                            <label for="${songId}">${song}</label>
+                            <select name="${songId}" id="${songId}" class="song-select" data-round="${round.id}">
+                              ${playerOptions}
+                            </select>
+                            <span id="feedback-${songId}" class="feedback"></span>
+                          </div>
+                        `);
+                      });
+                      document.write(`</div>`);
+                    });
+                  </script>
+
+                  <button type="submit">Submit Guesses</button>
+               </form>
+            </section>
+      </div>
+      <footer>
+      <p>Rhythm Riddlers Redacted</p>
+      </footer>
+      <script src="script.js"></script>
+      </main>
+   </body>
+</html>

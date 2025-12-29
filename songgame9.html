@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Song Guessing Game</title>
+    <link rel="stylesheet" href="stylesong.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Song Game 6: 2025</h1>
+    </header>
+
+    <div class="container">
+      <main>
+        <section id="instructions">
+          <h2>Instructions</h2>
+          <p>
+            Who's the mystery DJ for each funky situation? Place your wild guesses here!
+            And hey, don't worry, the page will give you a silly nudge if you accidentally
+            name a player twice in the same round. Let's get guessing!
+          </p>
+        </section>
+
+        <section id="game">
+          <form
+            id="guessForm"
+            method="post"
+            action="https://script.google.com/macros/s/AKfycbzwsMaKkrXcSnhWIGNUF625Q1MSQ4MqqG8O4ZBjeF0o03IVdUw0NmdDoVpuRYJZnilo/exec"
+          >
+            <!-- Player -->
+            <div class="round">
+              <h3>Enter Your Name:</h3>
+              <select name="player" id="player" class="song-select" data-round="0">
+                <option value="" disabled selected>Select a Player</option>
+              </select>
+            </div>
+
+            <!-- Round 1 -->
+            <div class="round">
+              <h3>Wrapped 2025</h3>
+
+              <div class="song">
+                <label for="round1song1">Song 1: 925</label>
+                <select name="round1song1" id="round1song1" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song1" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song2">Song 2: BLACKOUT</label>
+                <select name="round1song2" id="round1song2" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song2" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song3">Song 3: Blame Brett</label>
+                <select name="round1song3" id="round1song3" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song3" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song4">Song 4: Castles in the Sky</label>
+                <select name="round1song4" id="round1song4" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song4" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song5">Song 5: CRUSH</label>
+                <select name="round1song5" id="round1song5" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song5" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song6">Song 6: Dancing On My Own</label>
+                <select name="round1song6" id="round1song6" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song6" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song7">Song 7: DENIAL IS A RIVER</label>
+                <select name="round1song7" id="round1song7" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song7" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song8">Song 8: Diamonds Lights Fast Cars</label>
+                <select name="round1song8" id="round1song8" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song8" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song9">Song 9: Doggone Cowboy</label>
+                <select name="round1song9" id="round1song9" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song9" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song10">Song 10: DOLLAZ ON ME</label>
+                <select name="round1song10" id="round1song10" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song10" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song11">Song 11: Don't Look Back In Anger</label>
+                <select name="round1song11" id="round1song11" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song11" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song12">Song 12: double luxury</label>
+                <select name="round1song12" id="round1song12" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song12" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song13">Song 13: drive ME crazy!</label>
+                <select name="round1song13" id="round1song13" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song13" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song14">Song 14: Eastside</label>
+                <select name="round1song14" id="round1song14" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song14" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song15">Song 15: Edge of the Earth</label>
+                <select name="round1song15" id="round1song15" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song15" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song16">Song 16: Everyone's an Outlaw</label>
+                <select name="round1song16" id="round1song16" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song16" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song17">Song 17: Fighting In The Car</label>
+                <select name="round1song17" id="round1song17" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song17" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song18">Song 18: From Eden</label>
+                <select name="round1song18" id="round1song18" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song18" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song19">Song 19: go</label>
+                <select name="round1song19" id="round1song19" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song19" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song20">Song 20: Groove is in the Heart</label>
+                <select name="round1song20" id="round1song20" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song20" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song21">Song 21: Heavy Is The Crown</label>
+                <select name="round1song21" id="round1song21" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song21" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song22">Song 22: i haunt ur dreams</label>
+                <select name="round1song22" id="round1song22" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song22" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song23">Song 23: I KNOW?</label>
+                <select name="round1song23" id="round1song23" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song23" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song24">Song 24: I Love You, I'm Sorry</label>
+                <select name="round1song24" id="round1song24" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song24" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song25">Song 25: I Only Smoke When I Drink</label>
+                <select name="round1song25" id="round1song25" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song25" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song26">Song 26: Iceblink Luck</label>
+                <select name="round1song26" id="round1song26" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song26" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song27">Song 27: Like a Stone</label>
+                <select name="round1song27" id="round1song27" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song27" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song28">Song 28: Lone Star Lake</label>
+                <select name="round1song28" id="round1song28" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song28" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song29">Song 29: Low Life</label>
+                <select name="round1song29" id="round1song29" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song29" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song30">Song 30: My Own Prison</label>
+                <select name="round1song30" id="round1song30" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song30" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song31">Song 31: Nine Ball</label>
+                <select name="round1song31" id="round1song31" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song31" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song32">Song 32: NISSAN ALTIMA</label>
+                <select name="round1song32" id="round1song32" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song32" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song33">Song 33: OMGEE</label>
+                <select name="round1song33" id="round1song33" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song33" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song34">Song 34: One More Time</label>
+                <select name="round1song34" id="round1song34" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song34" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song35">Song 35: Open the Gate</label>
+                <select name="round1song35" id="round1song35" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song35" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song36">Song 36: Paper Planes</label>
+                <select name="round1song36" id="round1song36" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song36" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song37">Song 37: Plainsong</label>
+                <select name="round1song37" id="round1song37" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song37" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song38">Song 38: Putting Ya Dine</label>
+                <select name="round1song38" id="round1song38" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song38" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song39">Song 39: Right Back to It</label>
+                <select name="round1song39" id="round1song39" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song39" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song40">Song 40: Sailor Song</label>
+                <select name="round1song40" id="round1song40" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song40" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song41">Song 41: Sea Swallow Me</label>
+                <select name="round1song41" id="round1song41" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song41" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song42">Song 42: Spoiler</label>
+                <select name="round1song42" id="round1song42" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song42" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song43">Song 43: Strip Game</label>
+                <select name="round1song43" id="round1song43" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song43" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song44">Song 44: Supercut</label>
+                <select name="round1song44" id="round1song44" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song44" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song45">Song 45: Teenagers</label>
+                <select name="round1song45" id="round1song45" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song45" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song46">Song 46: The Days</label>
+                <select name="round1song46" id="round1song46" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song46" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song47">Song 47: The Emptiness Machine</label>
+                <select name="round1song47" id="round1song47" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song47" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song48">Song 48: The Ocean Is Fake</label>
+                <select name="round1song48" id="round1song48" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song48" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song49">Song 49: The Watcher</label>
+                <select name="round1song49" id="round1song49" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song49" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song50">Song 50: This Life</label>
+                <select name="round1song50" id="round1song50" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song50" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song51">Song 51: Today - 2011 Remaster</label>
+                <select name="round1song51" id="round1song51" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song51" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song52">Song 52: Too Many Woman</label>
+                <select name="round1song52" id="round1song52" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song52" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song53">Song 53: Touching Yourself</label>
+                <select name="round1song53" id="round1song53" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song53" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song54">Song 54: Von Dutch</label>
+                <select name="round1song54" id="round1song54" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song54" class="feedback"></span>
+              </div>
+
+              <div class="song">
+                <label for="round1song55">Song 55: When Will I Disappear</label>
+                <select name="round1song55" id="round1song55" class="song-select" data-round="1">
+                  <option value="" disabled selected>Select a Player</option>
+                </select>
+                <span id="feedback-round1song55" class="feedback"></span>
+              </div>
+            </div>
+
+            <button type="submit">Submit Guesses</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>Rhythm Riddlers Redacted</p>
+    </footer>
+
+    <script src="script2.js"></script>
+  </body>
+</html>
