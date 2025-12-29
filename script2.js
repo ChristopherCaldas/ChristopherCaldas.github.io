@@ -1,5 +1,5 @@
-var playerSelectionCount = {}; // Object to track player selections per round
-var lastSelections = {}; // Object to track the last selection of each dropdown
+var playerSelectionCount = {}; // Track player selections per round
+var lastSelections = {}; // Track the last selection of each dropdown
 
 // Single source of truth for players
 var PLAYERS = [
@@ -13,48 +13,41 @@ var PLAYERS = [
   "Josh",
   "Katie",
   "Kenzie",
-  "Lauren"
+  "Lauren",
 ];
 
-document.getElementById('guessForm').addEventListener('submit', function(event) {
-  const selects = document.querySelectorAll('select.song-select');
-  const anyMissing = Array.from(selects).some(s => !s.value);
-  if (anyMissing) {
-    alert('Missing A Selection');
-    event.preventDefault();
-  }
-});
-
-
-  if (!song1Input) {
-    alert("Missing A Selection");
-    event.preventDefault(); // Prevent form submission
-  }
-
-  // Add similar checks for other fields
-});
-
 document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("guessForm");
   var allDropdowns = document.querySelectorAll(".song-select");
 
-  // --- NEW: inject player options into every dropdown once ---
+  // Inject player options into every dropdown
   allDropdowns.forEach(function (select) {
     ensurePlayersInjected(select);
   });
 
-  // Your existing change listeners
+  // Submit validation (optional, but safer than hardcoding song1)
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      // require every select to be chosen (player + all songs)
+      var anyMissing = Array.from(allDropdowns).some((s) => !s.value);
+      if (anyMissing) {
+        alert("Missing A Selection");
+        event.preventDefault();
+      }
+    });
+  }
+
+  // Change listeners (your existing counter logic)
   allDropdowns.forEach(function (select) {
     select.addEventListener("change", function () {
       var round = this.getAttribute("data-round");
       var currentSelection = select.value;
       var previousSelection = lastSelections[select.id];
 
-      // Initialize round count object if it doesn't exist
       if (!playerSelectionCount[round]) {
         playerSelectionCount[round] = {};
       }
 
-      // Update counts only if the selection has changed
       if (currentSelection !== previousSelection) {
         if (previousSelection) {
           playerSelectionCount[round][previousSelection] = Math.max(
@@ -74,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function ensurePlayersInjected(selectEl) {
-    // Avoid duplicating options if the HTML already includes them
-    // or if this runs more than once.
+    // Avoid duplicating if you already have options in HTML
     var existingValues = new Set(
       Array.from(selectEl.options).map((o) => o.value)
     );
@@ -95,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (dropdown) => dropdown.getAttribute("data-round") === round
     );
 
-    // Reset feedback for all dropdowns in this round
+    // Reset feedback for dropdowns in this round (skip if no span exists)
     dropdownsInRound.forEach(function (dropdown) {
       var feedbackElement = document.getElementById("feedback-" + dropdown.id);
       if (!feedbackElement) return;
@@ -103,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       feedbackElement.style.color = "initial";
     });
 
-    // Check for duplicate selections and update feedback
+    // Update feedback
     dropdownsInRound.forEach(function (dropdown) {
       var player = dropdown.value;
       var feedbackElement = document.getElementById("feedback-" + dropdown.id);
@@ -117,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "⚠️ Selected more than 5 times in this round";
           feedbackElement.style.color = "red";
         } else {
-          // Show the number of times this player has been selected in this round
           feedbackElement.textContent = `Selected ${playerCountInRound} time(s) in this round`;
           feedbackElement.style.color = "green";
         }
