@@ -1,107 +1,296 @@
-/* Import a fun font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+/* Fonts: fun headline + clean body */
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #0b1020;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-2: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(255, 255, 255, 0.12);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.70);
+
+  --accent: #7c3aed;   /* purple */
+  --accent-2: #22c55e; /* green */
+  --danger: #fb7185;   /* pink/red */
+
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  --radius: 18px;
+  --radius-sm: 14px;
+
+  --pad: 16px;
+  --pad-lg: 18px;
+}
+
+/* ---------- Global reset-ish ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
 
 body {
-    font-family: 'Bangers', cursive; /* Playful font */
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa; /* Lighter background for a more vibrant look */
-    color: #333; /* Darker text for better readability */
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* modern, fun background */
+  background:
+    radial-gradient(800px 500px at 20% -10%, rgba(124, 58, 237, 0.55), transparent 60%),
+    radial-gradient(700px 450px at 90% 15%, rgba(34, 197, 94, 0.35), transparent 55%),
+    radial-gradient(900px 550px at 50% 110%, rgba(251, 113, 133, 0.25), transparent 60%),
+    linear-gradient(180deg, #070a14 0%, var(--bg) 60%, #070a14 100%);
 }
 
+/* Keep everything comfy on phones */
+.container {
+  width: 100%;
+  max-width: 520px; /* mobile-friendly */
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ---------- Header / Footer ---------- */
 header {
-    background-color: #03e8fc; /* Tomato red for a fun and vibrant header */
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    font-size: 2.5em; /* Larger font size for the header */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  padding: 14px 16px 10px;
+  text-align: center;
+
+  background: rgba(12, 18, 40, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--stroke);
 }
 
-main {
-    padding: 20px 0; /* More padding for better spacing */
+header h1 {
+  margin: 0;
+  font-family: "Bangers", cursive;
+  font-size: 34px;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 footer {
-    background-color: #ff6347; /* Matching the header for consistency */
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    font-size: 2.5em; /* Larger font size for the header */
+  margin-top: 24px;
+  padding: 18px 16px 26px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--stroke);
+  background: rgba(12, 18, 40, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-.container {
-    max-width: 960px; 
-    margin: 0 auto; /* Centering the container */
-    padding: 0 15px;
+footer p {
+  margin: 0;
+  font-size: 13px;
 }
 
-/* Styling for form elements */
+/* ---------- Main / Instructions ---------- */
+main {
+  padding: 12px 0 90px; /* leave room for sticky submit button */
+}
+
+#instructions {
+  margin: 14px 0 18px;
+  padding: 14px 14px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.14),
+    rgba(34, 197, 94, 0.10)
+  );
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
+}
+
+#instructions h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+#instructions p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* ---------- Form layout ---------- */
 form {
-    text-align: center;
+  text-align: left; /* more modern than centered form */
 }
 
+/* Section cards */
 form .round {
-    margin-bottom: 30px; /* More space for better separation of elements */
-    background-color: #e0e0e0; /* Slightly darker grey for round sections */
-    padding: 15px;
-    border-radius: 8px; /* Rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
+  margin: 14px 0;
+  padding: var(--pad);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
 }
 
+form .round > h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* Each song row becomes a mini-card */
 form .song {
-    margin-bottom: 30px; /* More space for better separation of elements */
-    background-color: #f0f0f0; /* Light background for each song section */
-    padding: 15px;
-    border-radius: 8px; /* Rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadows for depth */
+  margin: 10px 0;
+  padding: 12px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-label, 
-input[type='text'], 
-select, 
-button {
-    display: block;
-    margin: 10px auto;
-    width: 80%; 
-    max-width: 400px;
-    border: none;
-    padding: 10px;
-    border-radius: 4px; /* Rounded edges for inputs and buttons */
-}
-
+/* Labels */
 label {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.2em; /* Larger label font for better visibility */
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.25;
 }
 
-button {
-    cursor: pointer;
-    background-color: #ff6347; /* Lively green for the submit button */
-    color: white;
-    font-size: 1.2em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for the button */
-    transition: background-color 0.3s; /* Smooth transition for button hover */
+/* Inputs / Selects */
+input[type="text"],
+select {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(9, 12, 24, 0.6);
+  color: var(--text);
+  padding: 12px 12px;
+  border-radius: 14px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+  font-size: 16px; /* prevents iOS zoom */
 }
 
-button:hover {
-    background-color: #28a745; /* Slightly darker green on hover */
+/* Make select look “tap-able” */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.8) 50%),
+    linear-gradient(135deg, rgba(255,255,255,0.8) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 34px;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    .container, label, input[type='text'], select, button {
-        width: 95%;
-    }
+input[type="text"]:focus,
+select:focus {
+  border-color: rgba(124, 58, 237, 0.9);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.25);
+  transform: translateY(-1px);
 }
 
-/* Further responsiveness for smaller devices */
-@media (max-width: 480px) {
-    header {
-        font-size: 2em;
-    }
+/* Placeholder option color */
+select option[value=""] {
+  color: #9aa4b2;
+}
 
-    form .round, form .song {
-        padding: 10px;
-    }
+/* Feedback under each song */
+.feedback {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Your JS sets green/red inline, but this improves baseline */
+.feedback:empty {
+  display: none;
+}
+
+/* ---------- Button (sticky, modern CTA) ---------- */
+button[type="submit"] {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+
+  width: auto;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 16px;
+
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: white;
+
+  background:
+    linear-gradient(135deg, var(--accent) 0%, #5b21b6 45%, #06b6d4 100%);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px) scale(0.99);
+  filter: brightness(0.98);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.30);
+}
+
+/* Optional: make long pages feel “snappy” while scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ---------- Mobile tuning ---------- */
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  #instructions p {
+    font-size: 13.5px;
+  }
+
+  form .round {
+    padding: 14px;
+  }
+
+  form .song {
+    padding: 11px 11px;
+  }
+}
+
+/* Optional: landscape phones */
+@media (max-height: 650px) {
+  main {
+    padding-bottom: 98px;
+  }
 }
